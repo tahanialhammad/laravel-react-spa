@@ -19,7 +19,7 @@ use Inertia\Inertia;
 
 
 // Guset Site pages
-
+// was
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
