@@ -33,6 +33,8 @@ use Inertia\Inertia;
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'welcome')->name('welcome');
     Route::get('/about', 'about')->name('about');
+    Route::get('/contact', 'contact')->name('contact');
+    Route::get('/posts', 'posts')->name('posts');
 });
 
 
