@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -35,8 +36,15 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/posts', 'posts')->name('posts');
+    Route::get('/posts/{post}', 'showPost')->name('showPost');
+    Route::get('/create', 'createPost')->name('createPost');
+    Route::post('/create', 'savePost')->name('savePost');
 });
 
+//simple test rout
+// Route::post('/create', function (Request $request) {
+//     dd($request->all());
+// });
 
 
 Route::get('/dashboard', function () {
