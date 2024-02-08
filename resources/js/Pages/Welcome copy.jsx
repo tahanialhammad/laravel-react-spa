@@ -1,9 +1,9 @@
-import GuestLayout from '@/Layouts/GuestLayout';
+import SiteLayout from '@/Layouts/SiteLayout';
 import { Link, Head } from "@inertiajs/react";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
-        <GuestLayout>
+        <SiteLayout>
             <Head title="Welcome" />
             <h1>{laravelVersion} </h1>
             <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
@@ -407,6 +407,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     }
                 }
             `}</style>
-         </GuestLayout>
+         </SiteLayout>
     );
 }

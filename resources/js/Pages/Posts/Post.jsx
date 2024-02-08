@@ -1,15 +1,15 @@
-import GuestLayout from '@/Layouts/GuestLayout';
+import SiteLayout from '@/Layouts/SiteLayout';
 import { Link, Head } from "@inertiajs/react";
 
 
 export default function Post({post}) {
     return (
-        <GuestLayout>
+        <SiteLayout>
             <Head title="Post" />
            <div>
             <h1>{post.title}</h1>
             <div>{post.body}</div>
            </div>
-        </GuestLayout>
+        </SiteLayout>
     );
 }
