@@ -11,7 +11,7 @@ const navigation = [
     { name: "Contact", href: "contact" },
 ];
 
-export default function GuestNav() {
+export default function SiteNav() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
