@@ -1,4 +1,4 @@
-import GuestNav from "./GuestNav";
+import SiteNav from "./SiteNav";
 import FlashMessage from "@/Components/FlashMessage";
 import { usePage } from "@inertiajs/react";
 
@@ -7,7 +7,7 @@ export default function SiteLayout({ children }) {
 
     return (
         <div>
-            <GuestNav></GuestNav>
+            <SiteNav></SiteNav>
             <div>
                 {/* Flash message */}
                 {flash.message && (
