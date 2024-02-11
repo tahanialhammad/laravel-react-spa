@@ -27,6 +27,36 @@ export default function FramerMotion() {
             },
         },
     };
+
+    // Text Animation
+    const titleVariants = {
+        hidden: {
+            // initial value
+            opacity: 0,
+        },
+        visible: {
+            //animate value
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.5,
+            },
+        },
+    };
+
+    const spanVariants = {
+        hidden: {
+            // initial value
+            opacity: 0,
+        },
+        visible: {
+            //animate value
+            opacity: 1,
+        },
+    };
+
+    const titleText =
+        "Tahani webdeveloper freelace special in Laravel, Front-endand Woordpress with  Text Animation ";
+
     return (
         <SiteLayout>
             <div className="relative isolate px-6 pt-24 lg:px-8">
@@ -63,7 +93,7 @@ export default function FramerMotion() {
                 <div>
                     <h1>
                         exit animation with useEffect, useState and we need to
-                        AnimatePresence{" "}
+                        AnimatePresence
                     </h1>
                     <AnimatePresence>
                         {show && (
@@ -169,7 +199,7 @@ export default function FramerMotion() {
                         Variants btn
                     </motion.button>
                 </div>
-           
+
                 <hr />
                 <div className="bg-green-400 p-2">
                     <h1>Keyframes, repeat</h1>
@@ -195,17 +225,37 @@ export default function FramerMotion() {
                 <div>
                     <h1>Repeat</h1>
                     <motion.div
-                    style={{
-                        width : "100px",
-                        height: "100px",
-                        backgroundColor: "red"
-                    }}
+                        style={{
+                            width: "100px",
+                            height: "100px",
+                            backgroundColor: "red",
+                        }}
                         initial={{ x: 100 }}
-                        animate={{ x : 0 }}
-                        transition={{ duration : 0.5 , repeat: Infinity , repeatType: "reverse"}} //repeatType: loop ,mirror ,repeat : 5
+                        animate={{ x: 0 }}
+                        transition={{
+                            duration: 0.5,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                        }} //repeatType: loop ,mirror ,repeat : 5
                     >
                         <h1>Repeat</h1>
                     </motion.div>
+                </div>
+
+                <hr />
+                <div>
+                    <motion.h1
+                        variants={titleVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="text-8xl"
+                    >
+                        {titleText.split("").map((char, index) => (
+                            <motion.span variants={spanVariants} key={index}>
+                                {char}
+                            </motion.span>
+                        ))}
+                    </motion.h1>
                 </div>
             </div>
         </SiteLayout>
