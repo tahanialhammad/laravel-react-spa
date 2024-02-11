@@ -9,6 +9,7 @@ const navigation = [
     { name: "About", href: "about" },
     { name: "Blog", href: "posts" },
     { name: "Contact", href: "contact" },
+    {name: "FramerMotion", href: "FramerMotion"},
 ];
 
 export default function SiteNav() {

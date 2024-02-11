@@ -18,7 +18,7 @@ class SiteController extends Controller
 {
     public function welcome()
     {
-        return Inertia::render('Welcome', [
+        return Inertia::render('Home/Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
@@ -74,5 +74,10 @@ class SiteController extends Controller
         ]);
         // flash message https://inertiajs.com/shared-data#flash-messages
         return redirect('/posts')->with('message', 'Post was created!');
+    }
+
+    public function FramerMotion()
+    {
+        return Inertia::render('FramerMotion/FramerMotion');
     }
 }
