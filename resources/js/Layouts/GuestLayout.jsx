@@ -16,7 +16,7 @@ export default function GuestLayout({children}) {
         <div className="w-2/3 w-full flex flex-1 flex-col items-center justify-between px-10 relative">
             <div className="mt-8">
                 <Link href="/">
-                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                    <ApplicationLogo className="block h-24 w-auto fill-current text-gray-800" />
                 </Link>
             </div>
 

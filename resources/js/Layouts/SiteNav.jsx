@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NavLink from "@/Components/NavLink";
 import { Link } from "@inertiajs/react";
-
+import ApplicationLogo from "@/Components/ApplicationLogo";
 import { Dialog } from "@headlessui/react";
 
 const navigation = [
@@ -9,7 +9,7 @@ const navigation = [
     { name: "About", href: "about" },
     { name: "Blog", href: "posts" },
     { name: "Contact", href: "contact" },
-    {name: "FramerMotion", href: "FramerMotion"},
+    { name: "FramerMotion", href: "FramerMotion" },
 ];
 
 export default function SiteNav() {
@@ -23,14 +23,9 @@ export default function SiteNav() {
                     aria-label="Global"
                 >
                     <div className="flex lg:flex-1">
-                        <a href="/" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Your Company</span>
-                            <img
-                                className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                alt=""
-                            />
-                        </a>
+                        <Link href="/" className="-m-1.5 p-1.5">
+                            <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                        </Link>
                     </div>
                     <div className="flex lg:hidden">
                         <button
@@ -91,14 +86,9 @@ export default function SiteNav() {
                     <div className="fixed inset-0 z-50" />
                     <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
-                            <a href="#" className="-m-1.5 p-1.5">
-                                <span className="sr-only">Your Company</span>
-                                <img
-                                    className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                    alt=""
-                                />
-                            </a>
+                            <Link href="/" className="-m-1.5 p-1.5">
+                                <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                            </Link>
                             <button
                                 type="button"
                                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -145,7 +135,7 @@ export default function SiteNav() {
                                 <div className="py-6">
                                     <Link
                                         href={route("register")}
-                                        className="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     >
                                         Register
                                     </Link>

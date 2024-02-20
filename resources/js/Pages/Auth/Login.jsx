@@ -34,7 +34,7 @@ export default function Login({ status, canResetPassword }) {
             <div className="flex flex-1 flex-col justify-center space-y-5 max-w-md">
                 <div className="text-center">
                     <h2 className="text-3xl md:text-4xl font-bold">
-                        Sign in to account
+                        Sign in
                     </h2>
                 </div>
                 <div className="flex flex-col max-w-md space-y-5">
