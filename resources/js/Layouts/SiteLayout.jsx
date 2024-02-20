@@ -2,12 +2,12 @@ import SiteNav from "./SiteNav";
 import FlashMessage from "@/Components/FlashMessage";
 import { usePage } from "@inertiajs/react";
 
-export default function SiteLayout({ children }) {
+export default function SiteLayout({ user, children }) {
     const { flash } = usePage().props;
 
     return (
         <div>
-            <SiteNav></SiteNav>
+            <SiteNav user={user}></SiteNav>
             <div>
                 {/* Flash message */}
                 {flash.message && (
