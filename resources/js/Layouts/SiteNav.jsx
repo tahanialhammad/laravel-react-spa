@@ -12,7 +12,7 @@ const navigation = [
     { name: "FramerMotion", href: "FramerMotion" },
 ];
 
-export default function SiteNav() {
+export default function SiteNav({ user }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -62,19 +62,31 @@ export default function SiteNav() {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <Link
-                            href={route("login")}
-                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        >
-                            Log in <span aria-hidden="true">&rarr;</span>
-                        </Link>
+                        {user ? (
+                            <Link
+                                href={route("dashboard")}
+                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            >
+                                Dashboard
+                            </Link>
+                        ) : (
+                            <>
+                                <Link
+                                    href={route("login")}
+                                    className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                >
+                                    Log in{" "}
+                                    <span aria-hidden="true">&rarr;</span>
+                                </Link>
 
-                        <Link
-                            href={route("register")}
-                            className="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        >
-                            Register
-                        </Link>
+                                <Link
+                                    href={route("register")}
+                                    className="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                >
+                                    Register
+                                </Link>
+                            </>
+                        )}
                     </div>
                 </nav>
                 <Dialog
