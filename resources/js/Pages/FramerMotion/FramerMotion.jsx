@@ -230,12 +230,13 @@ export default function FramerMotion() {
                             height: "100px",
                             backgroundColor: "red",
                         }}
-                        initial={{ x: 100 }}
-                        animate={{ x: 0 }}
+                        initial={{ x: 0 }}
+                        animate={{ x: 900 }}
                         transition={{
-                            duration: 0.5,
+                            duration: 6.5,
                             repeat: Infinity,
                             repeatType: "reverse",
+                          //  repeatType: "loop",
                         }} //repeatType: loop ,mirror ,repeat : 5
                     >
                         <h1>Repeat</h1>
