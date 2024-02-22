@@ -41,6 +41,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/create', 'createPost')->name('createPost');
     Route::post('/create', 'savePost')->name('savePost');
     Route::get('/framer-motion', 'FramerMotion')->name('FramerMotion');
+    Route::get('/Toggle', 'Toggle')->name('Toggle');
 });
 
 //simple test rout

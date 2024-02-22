@@ -16,7 +16,7 @@ export default function SiteLayout({ user, children }) {
                     </FlashMessage>
                 )}
             </div>
-            <div>{children}</div>
+            <div className="mt-24 mx-8">{children}</div>
         </div>
     );
 }

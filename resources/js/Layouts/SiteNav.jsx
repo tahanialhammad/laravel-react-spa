@@ -10,6 +10,7 @@ const navigation = [
     { name: "Blog", href: "posts" },
     { name: "Contact", href: "contact" },
     { name: "FramerMotion", href: "FramerMotion" },
+    { name: "Toggle", href: "Toggle" },
 ];
 
 export default function SiteNav({ user }) {

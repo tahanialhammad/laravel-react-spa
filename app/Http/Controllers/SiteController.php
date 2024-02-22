@@ -80,4 +80,10 @@ class SiteController extends Controller
     {
         return Inertia::render('FramerMotion/FramerMotion');
     }
+
+    public function Toggle()
+    {
+        return Inertia::render('Toggle/Toggle');
+    }
+    
 }
