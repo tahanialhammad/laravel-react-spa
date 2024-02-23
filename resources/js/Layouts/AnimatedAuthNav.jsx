@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@inertiajs/react";
+import AuthNavLink from "@/Components/AuthNavLink";
 
 const navigation = [
-    { name: "Home", href: "welcome" },
+    { name: "dashboard", href: "dashboard" },
     { name: "About", href: "about" },
     { name: "Blog", href: "posts" },
     { name: "Contact", href: "contact" },
@@ -67,14 +68,15 @@ export default function AnimatedAuthNav({ user }) {
                     >
                         <ul>
                             {navigation.map((item) => (
-                                <li className="px-4 py-2 text-white hover:text-gray-900 hover:bg-gray-100 hover:rounded-s-full transition-all duration-300 ease-in-out">
-                                    <Link
+                                <li className="my-2 text-white hover:text-gray-900 hover:bg-gray-100 hover:border-s-8 hover:border-red-700 transition-all duration-300 ease-in-out">
+                                    <AuthNavLink
                                         key={item.name}
                                         href={route(item.href)}
                                         active={route().current(item.href)}
+                                        className="px-4 py-4 hover:text-gray-900"
                                     >
                                         {item.name}
-                                    </Link>
+                                    </AuthNavLink>
                                 </li>
                             ))}
                         </ul>
