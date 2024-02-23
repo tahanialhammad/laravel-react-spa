@@ -28,7 +28,7 @@ export default function AnimatedAuthNav({ user }) {
     };
 
     return (
-        <div className="relative">
+        <div className="relative md:flex hidden">
             <button
                 className="rounded-full bg-gray-900 p-2 absolute top-0 left-0 z-10"
                 onClick={() => setActive((pv) => !pv)}
