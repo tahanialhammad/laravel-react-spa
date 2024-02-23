@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.test{
+    background: transparent;
+    border-radius: 50%;
+}
