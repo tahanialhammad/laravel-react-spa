@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "@inertiajs/react";
 
-export default function AnimatedNav() {
+const navigation = [
+    { name: "Home", href: "welcome" },
+    { name: "About", href: "about" },
+    { name: "Blog", href: "posts" },
+    { name: "Contact", href: "contact" },
+    { name: "FramerMotion", href: "FramerMotion" },
+    { name: "Toggle", href: "Toggle" },
+];
+
+export default function AnimatedAuthNav({ user }) {
     const [active, setActive] = useState(false);
 
     const divVariants = {
@@ -9,11 +19,10 @@ export default function AnimatedNav() {
             height: 0,
             width: 0,
             overflow: "hidden",
-            // background : "transparent"
         },
         open: {
             height: "100vh",
-            width: "20vw",
+            width: "15vw",
         },
     };
 
@@ -53,25 +62,21 @@ export default function AnimatedNav() {
                         variants={divVariants}
                         animate={active ? "open" : "closed"}
                         transition={{ duration: 1.5 }}
-                        exit={{ opacity: 0, height: 0 ,  width: 0,}}
-                        className="bg-gray-900 absolute top-0 left-0 pt-8"
+                        exit={{ opacity: 0, height: 0, width: 0 }}
+                        className="bg-gray-900 absolute top-0 left-0 pt-16 ps-4"
                     >
-                        <ul
-                            animate={{ display: active ? "" : "none" }}
-                            class="border border-gray-200 rounded overflow-hidden shadow-md"
-                        >
-                            <li class="px-4 py-2 text-white hover:bg-gray-100 hover:text-gray-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">
-                                First Item
-                            </li>
-                            <li class="px-4 py-2 text-white hover:bg-gray-100 hover:text-gray-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">
-                                Second Item
-                            </li>
-                            <li class="px-4 py-2 text-white hover:bg-gray-100 hover:text-gray-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">
-                                Third Item
-                            </li>
-                            <li class="px-4 py-2 text-white hover:bg-gray-100 hover:text-gray-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">
-                                Another Item
-                            </li>
+                        <ul>
+                            {navigation.map((item) => (
+                                <li className="px-4 py-2 text-white hover:text-gray-900 hover:bg-gray-100 hover:rounded-s-full transition-all duration-300 ease-in-out">
+                                    <Link
+                                        key={item.name}
+                                        href={route(item.href)}
+                                        active={route().current(item.href)}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </motion.div>
                 )}

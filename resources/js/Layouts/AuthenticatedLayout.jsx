@@ -1,3 +1,4 @@
+import AnimatedAuthNav from './AnimatedAuthNav';
 import AuthNav from './AuthNav';
 
 export default function Authenticated({ user, header, children }) {
@@ -5,6 +6,7 @@ export default function Authenticated({ user, header, children }) {
     return (
         <div className="min-h-screen bg-gray-100">
             <AuthNav user={user} ></AuthNav>
+            <AnimatedAuthNav user={user}></AnimatedAuthNav>
 
             {header && (
                 <header className="bg-white shadow">
