@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Inertia\Inertia;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -13,23 +15,38 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Admin/Posts/Posts', [
+            'posts' => Post::all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
+
     public function create()
     {
-        //
+        return Inertia::render('Admin/Posts/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    // public function store(StorePostRequest $request)
+    public function store(Request $request)
     {
-        //
+        //   dd($request->all());
+        $request->validate([
+            'title' => 'required|min:3',
+            'body' => 'required|min:3',
+        ]);
+
+        Post::create([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+        // flash message https://inertiajs.com/shared-data#flash-messages
+        return redirect('/posts')->with('message', 'Post was created!');
     }
 
     /**
@@ -37,7 +54,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return Inertia::render('Admin/Posts/Post', [
+            'post' => $post,
+        ]);
     }
 
     /**

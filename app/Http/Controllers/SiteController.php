@@ -55,27 +55,6 @@ class SiteController extends Controller
         ]);
     }
 
-    public function createPost()
-    {
-        return Inertia::render('Posts/Create');
-    }
-
-    public function savePost(Request $request)
-    {
-        //   dd($request->all());
-        $request->validate([
-            'title' => 'required|min:3',
-            'body' => 'required|min:3',
-        ]);
-
-        Post::create([
-            'title' => $request->title,
-            'body' => $request->body,
-        ]);
-        // flash message https://inertiajs.com/shared-data#flash-messages
-        return redirect('/posts')->with('message', 'Post was created!');
-    }
-
     public function FramerMotion()
     {
         return Inertia::render('FramerMotion/FramerMotion');
