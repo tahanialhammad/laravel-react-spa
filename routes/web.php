@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PostController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -38,8 +39,8 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/posts', 'posts')->name('posts');
     Route::get('/posts/{post}', 'showPost')->name('showPost');
-    Route::get('/create', 'createPost')->name('createPost');
-    Route::post('/create', 'savePost')->name('savePost');
+    // Route::get('/create', 'createPost')->name('createPost');
+    // Route::post('/create', 'savePost')->name('savePost');
     Route::get('/framer-motion', 'FramerMotion')->name('FramerMotion');
     Route::get('/Toggle', 'Toggle')->name('Toggle');
 });
@@ -60,9 +61,18 @@ Route::controller(SiteController::class)->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    
+    //Posts
+    Route::controller(PostController::class)->group(function () {
+        Route::get('/admin/posts', 'index')->name('admin/posts');
+        Route::get('/admin/posts/{post}', 'show')->name('show');
+        Route::get('/admin/create', 'create')->name('admin/create');
+        Route::post('/admin/create', 'store')->name('store');
+    });
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -7,7 +7,8 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
 const navigation = [
     { name: "dashboard", href: "dashboard" },
-    { name: "Blog", href: "posts" },
+    { name: "Blog", href: "admin/posts" },
+     { name: "Create post", href: "admin/create" },
 ];
 
 export default function AuthNav({ user }) {
@@ -35,13 +36,15 @@ export default function AuthNav({ user }) {
                                 Dashboard
                             </NavLink> */}
 
-                            <NavLink
+                            {/* <NavLink
                                 href={route(routeName)}
                                 active={route().current(routeName)}
                                 className="capitalize"
                             >
                                 {routeName}
-                            </NavLink>
+                            </NavLink> */}
+
+                            {routeName}
                         </div>
                     </div>
 

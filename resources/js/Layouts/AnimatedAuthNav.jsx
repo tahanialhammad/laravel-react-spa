@@ -6,7 +6,7 @@ import AuthNavLink from "@/Components/AuthNavLink";
 const navigation = [
     { name: "dashboard", href: "dashboard" },
     { name: "About", href: "about" },
-    { name: "Blog", href: "posts" },
+    { name: "Blog", href: "admin/posts" },
     { name: "Contact", href: "contact" },
     { name: "FramerMotion", href: "FramerMotion" },
     { name: "Toggle", href: "Toggle" },
