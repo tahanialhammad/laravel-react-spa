@@ -35,13 +35,16 @@ class PostController extends Controller
     // public function store(StorePostRequest $request)
     public function store(Request $request)
     {
-        //   dd($request->all());
+        // dd($request->all());
+      //  dd(auth()->id()); 
+
         $request->validate([
             'title' => 'required|min:3',
             'body' => 'required|min:3',
         ]);
 
         Post::create([
+            'user_id' => auth()->id(),
             'title' => $request->title,
             'body' => $request->body,
         ]);

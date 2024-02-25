@@ -1,5 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Link, Head } from "@inertiajs/react";
+import AddPost from "./AddPost";
 
 export default function Posts({ auth, posts }) {
     return (
@@ -18,16 +19,18 @@ export default function Posts({ auth, posts }) {
                             <div className="flex flex-wrap items-center">
                                 <div className="relative w-full px-4 max-w-full flex-grow flex-1">
                                     <h3 className="font-semibold text-base text-blueGray-700">
-                                        Page Visits
+                                        Posts
                                     </h3>
                                 </div>
                                 <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                                    <button
+                                    <Link
+                                       href={route('admin/create')}
                                         className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         type="button"
                                     >
-                                        See all
-                                    </button>
+                                        Add Post
+                                    </Link>
+                                    <AddPost />
                                 </div>
                             </div>
                         </div>
@@ -74,39 +77,12 @@ export default function Posts({ auth, posts }) {
                         </div>
                     </div>
                 </div>
-                <footer className="relative pt-8 pb-6 mt-16">
-                    <div className="container mx-auto px-4">
-                        <div className="flex flex-wrap items-center md:justify-between justify-center">
-                            <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-                                <div className="text-sm text-blueGray-500 font-semibold py-1">
-                                    Made with{" "}
-                                    <a
-                                        href="https://www.creative-tim.com/product/notus-js"
-                                        className="text-blueGray-500 hover:text-gray-800"
-                                        target="_blank"
-                                    >
-                                        Notus JS
-                                    </a>{" "}
-                                    by{" "}
-                                    <a
-                                        href="https://www.creative-tim.com"
-                                        className="text-blueGray-500 hover:text-blueGray-800"
-                                        target="_blank"
-                                    >
-                                        {" "}
-                                        Creative Tim
-                                    </a>
-                                    .
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </section>
 
-            <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-                <Link href="/create">Create post</Link>
-            </div>
+            {/* <div>
+            
+                <Link href={route("admin/create")}>Create post</Link>
+            </div> */}
         </AuthenticatedLayout>
     );
 }
