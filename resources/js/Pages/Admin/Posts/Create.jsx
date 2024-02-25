@@ -12,7 +12,7 @@ export default function Create({ auth }) {
     function createPost(e) {
         e.preventDefault();
         //   alert('Çreating post');
-        post("/create");
+        post("/admin/create");
     }
 
     return (
@@ -25,7 +25,7 @@ export default function Create({ auth }) {
             }
         >
             <Head title="Create Post" />
-            <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            <div className="">
                 <div>create post with Form helper</div>
 
                 <form action="#" onSubmit={createPost}>
