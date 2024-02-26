@@ -83,6 +83,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post, Request $request)
     {
-        dd($request->all());
+        //   dd($request->all());
+        $id = $request->id;
+        Post::find($id)->delete();
+
+        return redirect('admin/posts')->with('message', 'Post was deleted!');
     }
 }

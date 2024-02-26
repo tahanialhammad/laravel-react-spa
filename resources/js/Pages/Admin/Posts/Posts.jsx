@@ -4,6 +4,7 @@ import AddPost from "./AddPost";
 import ViewIcon from "@/Components/Icons/ViewIcon";
 import EditIcon from "@/Components/Icons/EditIcon";
 import TrashIcon from "@/Components/Icons/TrashIcon";
+import DeletePost from "./DeletePost";
 
 export default function Posts({ auth, posts }) {
     return (
@@ -73,14 +74,18 @@ export default function Posts({ auth, posts }) {
                                                 <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
                                                 46,53%
                                             </td>
-                                            <td className="flex space-x-2 border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                <Link
+                                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                             <div className="flex space-x-2">
+                                             <Link
                                                     href={`/admin/posts/${post.id}`}
                                                 >
                                                   <ViewIcon />
                                                 </Link>
                                                 <EditIcon />
-                                                <TrashIcon />
+
+                                                <DeletePost post={post} />
+                                             </div>
+                                               
                                             </td>
                                         </tr>
                                     ))}

@@ -68,7 +68,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/admin/posts/{post}', 'show')->name('admin.show');
         Route::get('/admin/create', 'create')->name('admin/create');
         Route::post('/admin/create', 'store')->name('store');
-        Route::delete('/admin/posts/{post}', 'destroy')->name('post.destroy');
+        Route::delete('/admin/delete', 'destroy')->name('post.destroy');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
