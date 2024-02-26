@@ -1,6 +1,10 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Link, Head } from "@inertiajs/react";
 import AddPost from "./AddPost";
+import ViewIcon from "@/Components/Icons/ViewIcon";
+import EditIcon from "@/Components/Icons/EditIcon";
+import TrashIcon from "@/Components/Icons/TrashIcon";
+import DeletePost from "./DeletePost";
 
 export default function Posts({ auth, posts }) {
     return (
@@ -23,13 +27,13 @@ export default function Posts({ auth, posts }) {
                                     </h3>
                                 </div>
                                 <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                                    <Link
-                                       href={route('admin/create')}
+                                    {/* <Link
+                                        href={route("admin/create")}
                                         className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         type="button"
                                     >
                                         Add Post
-                                    </Link>
+                                    </Link> */}
                                     <AddPost />
                                 </div>
                             </div>
@@ -69,6 +73,19 @@ export default function Posts({ auth, posts }) {
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
                                                 46,53%
+                                            </td>
+                                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                             <div className="flex space-x-2">
+                                             <Link
+                                                    href={`/admin/posts/${post.id}`}
+                                                >
+                                                  <ViewIcon />
+                                                </Link>
+                                                <EditIcon />
+
+                                                <DeletePost post={post} />
+                                             </div>
+                                               
                                             </td>
                                         </tr>
                                     ))}
