@@ -36,7 +36,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-      //  dd(auth()->id()); 
+        //  dd(auth()->id()); 
 
         $request->validate([
             'title' => 'required|min:3',
@@ -49,7 +49,7 @@ class PostController extends Controller
             'body' => $request->body,
         ]);
         // flash message https://inertiajs.com/shared-data#flash-messages
-        return redirect('/posts')->with('message', 'Post was created!');
+        return redirect('admin/posts')->with('message', 'Post was created!');
     }
 
     /**
