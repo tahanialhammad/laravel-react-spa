@@ -14,8 +14,11 @@ export default function Post({auth, post}) {
     >
             <Head title="Post" />
            <div>
+            <h1>voor admin</h1>
             <h1>{post.title}</h1>
             <div>{post.body}</div>
+            <Link href={route('post.destroy', post.id)}>deleteeeeeeeeeeeeeeee</Link>
+
            </div>
         </AuthenticatedLayout>
     );
