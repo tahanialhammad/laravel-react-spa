@@ -7,6 +7,7 @@ import TextInput from "@/Components/TextInput";
 import InputLabel from "@/Components/InputLabel";
 import InputError from "@/Components/InputError";
 import TextAreaInput from "@/Components/TextAreaInput";
+import Swal from "sweetalert2";
 
 export default function AddPost() {
     const [confirming, setConfirming] = useState(false);
@@ -32,6 +33,12 @@ export default function AddPost() {
         //   alert('Çreating post');
         post("/admin/create");
         closeModal();
+        Swal.fire({
+            title: "Add Post!",
+            icon: "success",
+            title: "Your work has been saved",
+            confirmButtonText: "Cool",
+        });
     }
 
     return (

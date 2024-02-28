@@ -22,7 +22,7 @@ export default function Authenticated({ user, header, children }) {
             <div>
                 {/* Flash message */}
                 {flash.message && (
-                    <FlashMessage color="green" className="">
+                    <FlashMessage level = "success" >
                         {flash.message}
                     </FlashMessage>
                 )}
