@@ -5,6 +5,7 @@ import AnimatedHamburgerButton from "./partials/AnimatedHamburgerButton ";
 import AnimatedNav from "./partials/AnimatedNav";
 import ShowHide from "./partials/ShowHide";
 import UseModal from "./partials/UseModal";
+import UseDropdown from "./partials/UseDropdown";
 
 export default function Toggle() {
     return (
@@ -20,6 +21,8 @@ export default function Toggle() {
                 <ShowHide />
                 <hr />
                 <UseModal />
+                <hr />
+                <UseDropdown />
             </div>
         </SiteLayout>
     );
