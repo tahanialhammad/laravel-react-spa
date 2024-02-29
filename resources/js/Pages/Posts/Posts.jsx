@@ -45,22 +45,24 @@ export default function Posts({ posts }) {
                                     />
                                 </div>
                                 <div className="p-6">
-                                    <h6 className="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+                                    <h6 className="mb-4 block text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
                                         {post.title}
                                     </h6>
-                                    <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                                    <h4 className="mb-2 block text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                                         Lyft launching cross-platform service
                                         this week
                                     </h4>
-                                    <p className="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
+
+                                    <p className="truncate max-w-xs mb-8 block text-base font-normal leading-relaxed text-gray-700 antialiased">
                                         {post.body}
                                     </p>
+
                                     <div className="inline-block">
                                         <Link
                                             href={`/posts/${post.id}`}
-                                            className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                            className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                         >
-                                            Learn More 
+                                            Learn More
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"
@@ -85,7 +87,7 @@ export default function Posts({ posts }) {
                 </div>
             </div>
 
-{/* only in admin */}
+            {/* only in admin */}
             <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
                 <Link href="/create">Create post</Link>
             </div>
