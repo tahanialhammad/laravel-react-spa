@@ -37,6 +37,8 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'welcome')->name('welcome');
     Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
+    Route::get('/LandingPage', 'LandingPage')->name('LandingPage');
+    
     Route::get('/posts', 'posts')->name('posts');
     Route::get('/posts/{post}', 'showPost')->name('showPost');
     // Route::get('/create', 'createPost')->name('createPost');

@@ -64,5 +64,8 @@ class SiteController extends Controller
     {
         return Inertia::render('Toggle/Toggle');
     }
-    
+    public function LandingPage()
+    {
+        return Inertia::render('Landing/LandingPage'); 
+    }
 }

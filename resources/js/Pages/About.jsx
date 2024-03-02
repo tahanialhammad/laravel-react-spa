@@ -24,6 +24,14 @@ export default function About({ name }) {
                 >
                     {/* Guset Page Content */}
                     <h1>about {name} page</h1>
+                    <img src="./images/undraw_selected.svg" alt="" className="w-64 h-64"
+                     style={{
+                        x: '100px',
+                        y: '100px',
+                       
+                    }}/>
+                    <img src="./images/undraw_selectoption.svg" alt="" className="w-64 h-64"/>
+                    <img src="./images/undraw_website.svg" alt="" className="w-64 h-64"/>
                 </motion.div>
             </AnimatePresence>
         </SiteLayout>
