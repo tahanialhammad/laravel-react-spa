@@ -83,3 +83,6 @@
  .layouts-example ul li:nth-child(5) span {
   border: 2px solid #4400FF;
  }
+ .layouts-example ul li:nth-child(6) span {
+  border: 2px solid #007ffe;
+ }
