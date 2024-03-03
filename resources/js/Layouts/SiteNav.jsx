@@ -11,6 +11,8 @@ const navigation = [
     { name: "Contact", href: "contact" },
     { name: "FramerMotion", href: "FramerMotion" },
     { name: "Toggle", href: "Toggle" },
+    { name: "LandingPage", href: "LandingPage" },
+    
 ];
 
 export default function SiteNav({ user }) {
