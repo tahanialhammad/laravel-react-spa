@@ -68,4 +68,9 @@ class SiteController extends Controller
     {
         return Inertia::render('Landing/LandingPage'); 
     }
+    
+    public function LayoutsExample()
+    {
+        return Inertia::render('LayoutsExample/LayoutsExample'); 
+    }
 }
