@@ -12,7 +12,7 @@ const navigation = [
     { name: "FramerMotion", href: "FramerMotion" },
     { name: "Toggle", href: "Toggle" },
     { name: "LandingPage", href: "LandingPage" },
-    
+    { name: "LayoutsExample", href: "LayoutsExample" },
 ];
 
 export default function SiteNav({ user }) {
