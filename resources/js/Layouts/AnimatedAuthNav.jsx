@@ -1,88 +1,40 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "@inertiajs/react";
-import AuthNavLink from "@/Components/AuthNavLink";
+import React from "react";
+import Navigation from "./partials/Navigation";
+import MenuToggler from "./partials/MenuToggler";
+import { motion, useCycle } from "framer-motion";
+import { useState } from "react";
 
-const navigation = [
-    { name: "dashboard", href: "dashboard" },
-    { name: "About", href: "about" },
-    { name: "Blog", href: "admin/posts" },
-    { name: "Contact", href: "contact" },
-    { name: "FramerMotion", href: "FramerMotion" },
-    { name: "Toggle", href: "Toggle" },
-];
-
-export default function AnimatedAuthNav({ user }) {
-    const [active, setActive] = useState(false);
-
-    const divVariants = {
-        closed: {
-            height: 0,
-            width: 0,
-            overflow: "hidden",
+const sidebarVariants = {
+    open: {
+        clipPath: `circle(1000px at 40px 40px)`,
+        transition: {
+            duration: 0.4,
         },
-        open: {
-            height: "100vh",
-            width: "15vw",
+    },
+    closed: {
+        clipPath: `circle(30px at 40px 40px)`,
+        transition: {
+            duration: 0.4,
+            delay: 0.4,
         },
-    };
+    },
+};
+export default function AnimatedAuthNav() {
+    const [isOpen, toggleOpen] = useCycle(false, true);
 
     return (
-        <div className="relative md:flex hidden">
-            <button
-                className="rounded-full bg-gray-900 p-2 absolute top-0 left-0 z-10"
-                onClick={() => setActive((pv) => !pv)}
-            >
-                <svg
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    {active ? (
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    ) : (
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 6h16M4 12h16m-7 6h7"
-                        />
-                    )}
-                </svg>
-            </button>
-
-            <AnimatePresence>
-                {active && (
-                    <motion.div
-                        variants={divVariants}
-                        animate={active ? "open" : "closed"}
-                        transition={{ duration: 1.5 }}
-                        exit={{ opacity: 0, height: 0, width: 0 }}
-                        className="bg-gray-900 absolute top-0 left-0 pt-16 ps-4"
-                    >
-                        <ul>
-                            {navigation.map((item) => (
-                                <li className="my-2 text-white hover:text-gray-900 hover:bg-gray-100 hover:border-s-8 hover:border-red-700 transition-all duration-300 ease-in-out">
-                                    <AuthNavLink
-                                        key={item.name}
-                                        href={route(item.href)}
-                                        active={route().current(item.href)}
-                                        className="px-4 py-4 hover:text-gray-900"
-                                    >
-                                        {item.name}
-                                    </AuthNavLink>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
+        <motion.nav
+            variants={sidebarVariants}
+            initial={false}
+            animate={isOpen ? "open" : "closed"} // use this in parrent
+            className="layouts-example absolute top-0 left-0 bottom-0 w-[300px]"
+        >
+            <motion.div
+                variants={sidebarVariants}
+                className="backgroundttt bg-white absolute top-0 left-0 bottom-0 w-[300px]"
+            />
+            <MenuToggler toggle={() => toggleOpen()} />
+            <Navigation />
+        </motion.nav>
     );
 }

@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@inertiajs/react";
-import AuthNavLink2 from "@/Components/AuthNavLink2";
+import AuthNavLink from "@/Components/AuthNavLink";
 
 const navigation = [
-    { name: "Home", href: "welcome" },
+    { name: "dashboard", href: "dashboard" },
     { name: "About", href: "about" },
-    { name: "Blog", href: "posts" },
+    { name: "Blog", href: "admin/posts" },
     { name: "Contact", href: "contact" },
     { name: "FramerMotion", href: "FramerMotion" },
     { name: "Toggle", href: "Toggle" },
-    { name: "LandingPage", href: "LandingPage" },
 ];
 
-export default function AnimatedNav() {
+export default function AnimatedAuthNav({ user }) {
     const [active, setActive] = useState(false);
 
     const divVariants = {
@@ -31,7 +30,7 @@ export default function AnimatedNav() {
     return (
         <div className="relative md:flex hidden">
             <button
-                className="rounded-full bg-gray-900 p-2 absolute top-0 left-0 z-20"
+                className="rounded-full bg-gray-900 p-2 absolute top-0 left-0 z-10"
                 onClick={() => setActive((pv) => !pv)}
             >
                 <svg
@@ -65,19 +64,19 @@ export default function AnimatedNav() {
                         animate={active ? "open" : "closed"}
                         transition={{ duration: 1.5 }}
                         exit={{ opacity: 0, height: 0, width: 0 }}
-                        className="bg-gray-900 absolute top-0 left-0 pt-16 ps-4 z-10"
+                        className="bg-gray-900 absolute top-0 left-0 pt-16 ps-4"
                     >
                         <ul>
                             {navigation.map((item) => (
                                 <li className="my-2 text-white hover:text-gray-900 hover:bg-gray-100 hover:border-s-8 hover:border-red-700 transition-all duration-300 ease-in-out">
-                                    <AuthNavLink2
+                                    <AuthNavLink
                                         key={item.name}
                                         href={route(item.href)}
                                         active={route().current(item.href)}
                                         className="px-4 py-4 hover:text-gray-900"
                                     >
                                         {item.name}
-                                    </AuthNavLink2>
+                                    </AuthNavLink>
                                 </li>
                             ))}
                         </ul>
