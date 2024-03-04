@@ -73,4 +73,11 @@ class SiteController extends Controller
     {
         return Inertia::render('LayoutsExample/LayoutsExample'); 
     }
+
+    public function services()
+    {
+        return Inertia::render('Services/Services'); 
+    }
+
+    
 }
