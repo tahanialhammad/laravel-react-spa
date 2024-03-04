@@ -2,6 +2,9 @@ import React, { useState, createContext, useContext } from "react";
 
 const HoverDropDownContext = createContext();
 
+// https://tailwindcomponents.com/component/dropdown-9
+// https://tailwindcomponents.com/component/filter-reset
+
 export default function HoverDropDown({ children })  {
     const [open, setOpen] = useState(false);
 
