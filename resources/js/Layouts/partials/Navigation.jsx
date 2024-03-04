@@ -3,12 +3,12 @@ import MenuItem from "./MenuItem";
 import { motion } from "framer-motion";
 
 const navigation = [
-    { name: "dashboard", href: "dashboard" },
-    { name: "About", href: "about" },
-    { name: "Blog", href: "admin/posts" },
-    { name: "Contact", href: "contact" },
-    { name: "FramerMotion", href: "FramerMotion" },
-    { name: "Toggle", href: "Toggle" },
+    { name: "dashboard", href: "dashboard" , color : "border-red-600"},
+    { name: "About", href: "about" , color : "border-orange-600" },
+    { name: "Blog", href: "admin/posts" ,color : "border-fuchsia-600"},
+    { name: "Contact", href: "contact" ,  color : "border-purple-600"},
+    { name: "FramerMotion", href: "FramerMotion", color : "border-indigo-600" },
+    { name: "Toggle", href: "Toggle", color : "border-blue-600" },
 ];
 
 const navigationVariants = {
