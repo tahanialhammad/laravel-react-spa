@@ -40,6 +40,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/LandingPage', 'LandingPage')->name('LandingPage');
     Route::get('/LayoutsExample', 'LayoutsExample')->name('LayoutsExample');
+    Route::get('/TesetCode', 'TesetCode')->name('TesetCode');
 
     Route::get('/posts', 'posts')->name('posts');
     Route::get('/posts/{post}', 'showPost')->name('showPost');

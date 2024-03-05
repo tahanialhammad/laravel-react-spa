@@ -79,5 +79,9 @@ class SiteController extends Controller
         return Inertia::render('Services/Services'); 
     }
 
+    public function TesetCode()
+    {
+        return Inertia::render('TesetCode/TesetCode'); 
+    }
     
 }
