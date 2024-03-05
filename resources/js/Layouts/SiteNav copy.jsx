@@ -6,25 +6,19 @@ import { Dialog } from "@headlessui/react";
 import Dropdown from "@/Components/Dropdown";
 import HoverDropDowen from "@/Components/HoverDropDowen";
 
-
 const navigation = [
     { name: "Home", href: "welcome" },
     { name: "Services", href: "services" },
     { name: "About", href: "about" },
     { name: "Blog", href: "posts" },
     { name: "Contact", href: "contact" },
-    {
-        name: "Example",
-        subNav: [
-            { name: "FramerMotion", href: "FramerMotion" },
-            { name: "Toggle", href: "Toggle" },
-            { name: "LandingPage", href: "LandingPage" },
-            { name: "LayoutsExample", href: "LayoutsExample" },
-            { name: "TesetCode", href: "TesetCode" },
+];
 
-            
-        ],
-    },
+const subNavigation = [
+    { name: "FramerMotion", href: "FramerMotion" },
+    { name: "Toggle", href: "Toggle" },
+    { name: "LandingPage", href: "LandingPage" },
+    { name: "LayoutsExample", href: "LayoutsExample" },
 ];
 
 
@@ -66,37 +60,28 @@ export default function SiteNav({ user }) {
                         </button>
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
-                    {navigation.map((item, index) => (
-                        <HoverDropDowen>
-                            <HoverDropDowen.Trigger key={index}>
-                                <NavLink
-                                    key={item.name}
-                                    href={item.href && route(item.href)}
-                                    active={
-                                        item.href && route().current(item.href)
-                                    }
-                                    className="text-sm font-semibold leading-6 text-gray-900"
-                                >
-                                    {item.name}
-                                </NavLink>
-                            </HoverDropDowen.Trigger>
+                        {navigation.map((item) => (
+                            <NavLink
+                                key={item.name}
+                                href={route(item.href)}
+                                active={route().current(item.href)}
+                                className="text-sm font-semibold leading-6 text-gray-900"
+                            >
+                                {item.name}
+                            </NavLink>
+                        ))}
 
-                            {item.subNav && (
-                                <HoverDropDowen.Content>
-                                    {item.subNav.map((subItem, subIndex) => (
-                                        <HoverDropDowen.Link
-                                            href={route(subItem.href)}
-                                            key={subIndex}
-                                            className="px-2"
-                                        >
-                                            {subItem.name}
-                                        </HoverDropDowen.Link>
-                                    ))}
-                                </HoverDropDowen.Content>
-                            )}
+                        <HoverDropDowen>
+                            <HoverDropDowen.Trigger className="">
+                                <NavLink> Trigger text </NavLink>
+                            </HoverDropDowen.Trigger>
+                            <HoverDropDowen.Content>
+                                <HoverDropDowen.Link className="px-2">
+                                    llllllllllll
+                                </HoverDropDowen.Link>
+                                Content text
+                            </HoverDropDowen.Content>
                         </HoverDropDowen>
-                    ))}
-                      
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         {user ? (
@@ -165,8 +150,8 @@ export default function SiteNav({ user }) {
                                     {navigation.map((item) => (
                                         <Link
                                             key={item.name}
-                                            href={item.href && route(item.href)}
-                                            active={item.href && route().current(item.href)}
+                                            href={route(item.href)}
+                                            active={route().current(item.href)}
                                             className="block -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                         >
                                             {item.name}
