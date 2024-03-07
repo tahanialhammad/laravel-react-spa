@@ -20,7 +20,7 @@ const navigation = [
             { name: "Toggle", href: "Toggle" },
             { name: "LandingPage", href: "LandingPage" },
             { name: "LayoutsExample", href: "LayoutsExample" },
-            { name: "TesetCode", href: "TesetCode" },
+            { name: "TestCode", href: "TestCode" },
 
             
         ],

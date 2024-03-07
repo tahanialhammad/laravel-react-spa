@@ -15,8 +15,16 @@ class PostController extends Controller
      */
     public function index()
     {
+        //$posts = Post::with('user')->get();
+
+        $posts = Post::with('user')->get()->map(function ($post) {
+            $post->formatted_created_at = $post->created_at->format('D d M Y');
+            return $post;
+        });
+
         return Inertia::render('Admin/Posts/Posts', [
-            'posts' => Post::all(),
+        //    'posts' => Post::all(),
+            'posts' => $posts,
         ]);
     }
 
