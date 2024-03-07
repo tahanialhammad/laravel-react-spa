@@ -1,6 +1,8 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Winner from "./Winner";
+import AnimatedText from "@/Components/AnimatedText";
+import Winner2 from "./Winner2";
 
 export default function HeroSection() {
     return (
@@ -28,11 +30,17 @@ export default function HeroSection() {
                 </div>
                 <div className="flex flex-row w-full">
                     <div className="w-2/3 text-justify ">
-                        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+                        <div className="mx-auto max-w-2xl py-12 lg:py-32">
                             <div className="text-left">
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                    Tahani Alhammad Webontwikkelaar
-                                </h1>
+                                <AnimatedText
+                                    animationSpeed={0.1}
+                                    className="text-2xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                                >
+                                    Hi!, Iam Tahani webdeveloper freelace
+                                    special in Laravel, Front-endand with React,
+                                    VueJs and Tailwind
+                                </AnimatedText>
+
                                 <p className="mt-6 text-lg leading-8 text-gray-600">
                                     Mijn passie ligt in het creëren van
                                     websites, waarbij ik me specifiek richt op
@@ -69,7 +77,8 @@ export default function HeroSection() {
                         </div>
                     </div>
                     <div className="w-1/3 overflow-hidden">
-                        <Winner />
+                        {/* <Winner /> */}
+                        <Winner2 />
                     </div>
                 </div>
 

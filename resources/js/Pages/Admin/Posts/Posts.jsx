@@ -8,6 +8,7 @@ import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
 
 export default function Posts({ auth, posts }) {
+
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -66,13 +67,14 @@ export default function Posts({ auth, posts }) {
                                                 {post.title}
                                             </th>
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                                            {post.user_id}
+                                            {post.user.name}
                                             </td>
                                             <td className="truncate max-w-xs border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                             {post.body}
                                             </td>
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                            {post.created_at}
+                                            {/* {post.created_at} */}
+                                            {post.formatted_created_at}
                                             </td>
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <div className="flex space-x-2">
