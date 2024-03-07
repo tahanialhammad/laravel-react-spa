@@ -3,6 +3,8 @@ import NestedArray from "./Partials/NestedArray";
 import CircleGallery from "./Partials/CircleGallery";
 import Keyframes from "./Partials/Keyframes";
 import RotatingImage from "@/Components/RotatingImage";
+import PictureCircle from "./Partials/PictureCircle";
+import AnimatedPictureCircle from "@/Shared/AnimatedPictureCircle";
 
 export default function TestCode() {
     return (
@@ -13,7 +15,10 @@ export default function TestCode() {
             {/* <CircleGallery /> */}
             {/* <Keyframes /> */}
 
-            <RotatingImage />
+            {/* <RotatingImage /> */}
+
+            {/* <PictureCircle /> */}
+            <AnimatedPictureCircle />
         </div>
     );
 }

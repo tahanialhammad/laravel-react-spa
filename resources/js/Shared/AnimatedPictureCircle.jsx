@@ -1,6 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const PictureCircle = () => {
+export default function AnimatedPictureCircle () {
     const pictureUrls = [
         "./images/react.png",
         "./images/gitlab.png",
@@ -14,7 +15,12 @@ const PictureCircle = () => {
     const angleIncrement = (2 * Math.PI) / pictureUrls.length;
 
     return (
-        <svg width="500" height="500">
+        <motion.svg
+        animate={{
+            rotate: 360,
+            transition: { duration: 50, loop: Infinity }
+          }}
+           width="500" height="500" className="">
             {pictureUrls.map((url, index) => {
                 const angle = index * angleIncrement;
                 const x = Math.cos(angle) * 200 + 250; // Adjust radius and center X position as needed
@@ -30,8 +36,7 @@ const PictureCircle = () => {
                     />
                 );
             })}
-        </svg>
+        </motion.svg>
     );
 };
 
-export default PictureCircle;
