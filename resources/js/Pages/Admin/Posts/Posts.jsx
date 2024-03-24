@@ -52,7 +52,7 @@ export default function Posts({ auth, posts }) {
                                         Author
                                         </th>
                                         <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                            post text
+                                            post excerpt
                                         </th>
                                         <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                            Created at
@@ -70,7 +70,7 @@ export default function Posts({ auth, posts }) {
                                             {post.user.name}
                                             </td>
                                             <td className="truncate max-w-xs border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                            {post.body}
+                                            {post.excerpt}
                                             </td>
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                             {/* {post.created_at} */}

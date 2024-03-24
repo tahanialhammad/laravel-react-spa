@@ -12,6 +12,8 @@ export default function Posts({ posts }) {
                     <h2 className="mb-4 font-bold text-xl text-gray-600">
                         All blog posts
                     </h2>
+                    
+                    {posts && posts.length > 0 ? (
                     <div className="grid w-full sm:grid-cols-1 xl:grid-cols-2 gap-6">
                         {posts.map((post) => (
                             <div
@@ -39,7 +41,7 @@ export default function Posts({ posts }) {
                                         </svg>
                                     </a>
                                     <img
-                                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"
+                                        src={post.image ? post.image  : "https://images.unsplash.com/photo-1632927126841-16541389e582?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
                                         alt="image"
                                         className="h-full w-full object-cover"
                                     />
@@ -49,8 +51,7 @@ export default function Posts({ posts }) {
                                         {post.title}
                                     </h6>
                                     <h4 className="mb-2 block text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                                        Lyft launching cross-platform service
-                                        this week
+                                          {post.excerpt}
                                     </h4>
 
                                     <p className="truncate max-w-xs mb-8 block text-base font-normal leading-relaxed text-gray-700 antialiased">
@@ -84,13 +85,18 @@ export default function Posts({ posts }) {
                             </div>
                         ))}
                     </div>
+                    ):(
+                        <h1>There are no posts</h1>
+                    )}
                 </div>
             </div>
 
             {/* only in admin */}
+         
             <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-                <Link href="/create">Create post</Link>
+                <Link href={route('admin.posts')} >Create post</Link>
             </div>
+        
         </SiteLayout>
     );
 }

@@ -69,7 +69,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     
     //Posts
     Route::controller(PostController::class)->group(function () {
-        Route::get('/admin/posts', 'index')->name('admin/posts');
+        Route::get('/admin/posts', 'index')->name('admin.posts');
         Route::get('/admin/posts/{post}', 'show')->name('admin.show');
         Route::get('/admin/create', 'create')->name('admin/create');
         Route::post('/admin/create', 'store')->name('store');

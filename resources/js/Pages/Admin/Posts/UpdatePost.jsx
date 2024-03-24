@@ -14,6 +14,8 @@ export default function UpdatePost({ post }) {
     const { data, setData, patch, errors, reset, processing } = useForm({
         id: post.id,
         title: post.title,
+        excerpt :post.excerpt,
+        image: post.image,
         body: post.body,
     });
 
@@ -72,6 +74,54 @@ export default function UpdatePost({ post }) {
                                     className="mt-2"
                                 />
                             </div>
+
+                            <div>
+                                <InputLabel
+                                    htmlFor="excerpt"
+                                    value="Post excerpt"
+                                />
+                                <TextInput
+                                    id="excerpt"
+                                    type="text"
+                                    name="excerpt"
+                                    value={data.excerpt}
+                                    onChange={(e) =>
+                                        setData("excerpt", e.target.value)
+                                    }
+                                    className="mt-1 block w-3/4"
+                                    isFocused
+                                    placeholder="Post excerpt"
+                                />
+                                <InputError
+                                    message={errors.excerpt}
+                                    className="mt-2"
+                                />
+                            </div>
+                            
+                            <div>
+                                <InputLabel
+                                    htmlFor="image"
+                                    value="Post image"
+                                />
+
+                                <TextInput
+                                    id="image"
+                                    type="text"
+                                    name="image"
+                                    value={data.image}
+                                    onChange={(e) =>
+                                        setData("image", e.target.value)
+                                    }
+                                    className="mt-1 block w-3/4"
+                                    isFocused
+                                    placeholder="Post image"
+                                />
+                                <InputError
+                                    message={errors.image}
+                                    className="mt-2"
+                                />
+                            </div>
+
                             <div>
                                 <InputLabel htmlFor="body" value="Post body" />
                                 <TextAreaInput
