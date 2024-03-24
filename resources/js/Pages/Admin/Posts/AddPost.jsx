@@ -26,6 +26,8 @@ export default function AddPost() {
     const { data, setData, post, errors, reset } = useForm({
         title: "",
         body: "",
+        excerpt : "",
+        image: "",
     });
 
     function createPost(e) {
@@ -36,7 +38,6 @@ export default function AddPost() {
         Swal.fire({
             title: "Add Post!",
             icon: "success",
-            title: "Your work has been saved",
             confirmButtonText: "Cool",
         });
     }
@@ -80,6 +81,55 @@ export default function AddPost() {
                                 />
                                 {/* {errors.title && <div>{errors.title}</div>} */}
                             </div>
+
+                            <div>
+                                <InputLabel
+                                    htmlFor="excerpt"
+                                    value="Post excerpt"
+                                />
+                                <TextInput
+                                    id="excerpt"
+                                    type="text"
+                                    name="excerpt"
+                                    value={data.excerpt}
+                                    onChange={(e) =>
+                                        setData("excerpt", e.target.value)
+                                    }
+                                    className="mt-1 block w-3/4"
+                                    isFocused
+                                    placeholder="Post excerpt"
+                                />
+                                <InputError
+                                    message={errors.excerpt}
+                                    className="mt-2"
+                                />
+                            </div>
+                            
+                            <div>
+                                <InputLabel
+                                    htmlFor="image"
+                                    value="Post image"
+                                />
+
+                                <TextInput
+                                    id="image"
+                                    type="text"
+                                    name="image"
+                                    value={data.image}
+                                    onChange={(e) =>
+                                        setData("image", e.target.value)
+                                    }
+                                    className="mt-1 block w-3/4"
+                                    isFocused
+                                    placeholder="Post image"
+                                />
+                                <InputError
+                                    message={errors.image}
+                                    className="mt-2"
+                                />
+                            </div>
+
+                            
                             <div>
                                 <InputLabel htmlFor="body" value="Post body" />
                                 <TextAreaInput

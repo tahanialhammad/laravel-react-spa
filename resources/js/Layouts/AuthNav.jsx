@@ -7,7 +7,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
 const navigation = [
     { name: "dashboard", href: "dashboard" },
-    { name: "Blog", href: "admin/posts" },
+    { name: "Blog", href: "admin.posts" },
     // { name: "Create post", href: "admin/create" },
 ];
 

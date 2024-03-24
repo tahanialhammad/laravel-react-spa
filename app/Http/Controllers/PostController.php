@@ -48,13 +48,17 @@ class PostController extends Controller
 
         $request->validate([
             'title' => 'required|min:3',
+            'excerpt' => 'required|min:3',
             'body' => 'required|min:3',
+            'image' => 'required',
         ]);
 
         Post::create([
             'user_id' => auth()->id(),
             'title' => $request->title,
+            'excerpt' => $request->excerpt,
             'body' => $request->body,
+            'image' => $request->image,
         ]);
         // flash message https://inertiajs.com/shared-data#flash-messages
         return redirect('admin/posts')->with('message', 'Post was created!');
@@ -94,7 +98,9 @@ class PostController extends Controller
         $id = $request->id;
         Post::find($id)->update([
             'title' => $request->title,
+            'excerpt' => $request->excerpt,
             'body' => $request->body,
+            'image' => $request->image,
         ]);
 
         return redirect('admin/posts')->with('message', 'Post was updated!');
