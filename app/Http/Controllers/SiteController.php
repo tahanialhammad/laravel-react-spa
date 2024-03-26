@@ -43,13 +43,18 @@ class SiteController extends Controller
 
     public function posts()
     {
+        $posts = Post::with('user')->get();
+
         return Inertia::render('Posts/Posts', [
-            'posts' => Post::all(),
+           // 'posts' => Post::all(),
+            'posts' =>  $posts,
+
         ]);
     }
 
     public function showPost(Post $post)
     {
+        $post->load('user');
         return Inertia::render('Posts/Post', [
             'post' => $post,
         ]);

@@ -40,7 +40,7 @@ export default function Post({ auth, post }) {
                                 />
                                 <div>
                                     <p className="font-semibold text-gray-200 text-sm">
-                                        Mike Sullivan{" "}
+                                        Mike Sullivan
                                     </p>
                                     <p className="font-semibold text-gray-400 text-xs">
                                         {post.created_at}
