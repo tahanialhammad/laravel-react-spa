@@ -13,6 +13,7 @@ export default function Services() {
           className="z-50 w-full h-full object-cover opacity-75"
         />
         <div>Services</div>
+        
       </div>
     </SiteLayout>
   );
