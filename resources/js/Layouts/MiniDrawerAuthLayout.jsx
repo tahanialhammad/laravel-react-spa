@@ -1,35 +1,25 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import {
+    ThemeProvider,
+    createTheme,
+    styled,
+    useTheme,
+} from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 
 import TopBar from "./partials/TopBar";
 import SideBar from "./partials/SideBar";
-
+import { getDesignTokens } from "@/Theme";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
 }));
 
 export default function MiniDrawerAuthLayout({ children }) {
@@ -43,18 +33,30 @@ export default function MiniDrawerAuthLayout({ children }) {
         setOpen(false);
     };
 
+    // https://mui.com/material-ui/customization/dark-mode/
+    // const [mode, setMode] = React.useState("light");
+    // fromm local storge
+    const [mode, setMode] = React.useState(localStorage.getItem("currentMode") ? localStorage.getItem("currentMode") : "light" );
+
+    const theme = React.useMemo(
+        () => createTheme(getDesignTokens(mode)),
+        [mode]
+    );
+
     return (
-        <Box sx={{ display: "flex" }}>
-            <CssBaseline />
+        <ThemeProvider theme={theme}>
+            <Box sx={{ display: "flex" }}>
+                <CssBaseline />
 
-            <TopBar open={open} handleDrawerOpen={handleDrawerOpen} />
+                <TopBar open={open} handleDrawerOpen={handleDrawerOpen} setMode={setMode} />
 
-            <SideBar open={open} handleDrawerClose={handleDrawerClose} />
+                <SideBar open={open} handleDrawerClose={handleDrawerClose} />
 
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                <DrawerHeader />
-                <Typography paragraph>{children}</Typography>
+                <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                    <DrawerHeader />
+                    <Typography paragraph>{children}</Typography>
+                </Box>
             </Box>
-        </Box>
+        </ThemeProvider>
     );
 }

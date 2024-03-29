@@ -1,34 +1,18 @@
 import React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { styled, alpha, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
+
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 
 import Stack from "@mui/material/Stack";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
-import NightsStayOutlinedIcon from "@mui/icons-material/NightsStayOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import {
-    DarkModeOutlined,
-    NotificationsOutlined,
-} from "@mui/icons-material";
+import { DarkModeOutlined, NotificationsOutlined } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
@@ -91,7 +75,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function TopBar({ open, handleDrawerOpen }) {
+export default function TopBar({ open, handleDrawerOpen, setMode }) {
+    const theme = useTheme();
     return (
         <AppBar position="fixed" open={open}>
             <Toolbar>
@@ -132,12 +117,34 @@ export default function TopBar({ open, handleDrawerOpen }) {
                         <Person2OutlinedIcon />
                     </IconButton>
 
-                    <IconButton color="inherit">
-                        <DarkModeOutlined />
-                    </IconButton>
-                    <IconButton color="inherit">
-                        <LightModeOutlinedIcon />
-                    </IconButton>
+                    {/* https://mui.com/material-ui/customization/default-theme/ */}
+                    {/* https://mui.com/material-ui/customization/dark-mode/ */}
+                    {theme.palette.mode === "light" ? (
+                        <IconButton
+                            onClick={() => {
+                                // save cureent mode in storge , inspect -> alpplication -> local storge
+                                localStorage.setItem("currentMode" , theme.palette.mode === "dark" ? "light" : "dark");
+                                setMode((prevMode) =>
+                                    prevMode === "light" ? "dark" : "light"
+                                );
+                            }}
+                            color="inherit"
+                        >
+                            <LightModeOutlinedIcon />
+                        </IconButton>
+                    ) : (
+                        <IconButton
+                            onClick={() => {
+                                localStorage.setItem("currentMode" , theme.palette.mode === "dark" ? "light" : "dark");
+                                setMode((prevMode) =>
+                                    prevMode === "light" ? "dark" : "light"
+                                );
+                            }}
+                            color="inherit"
+                        >
+                            <DarkModeOutlined />
+                        </IconButton>
+                    )}
 
                     <IconButton color="inherit">
                         <NotificationsOutlined />
