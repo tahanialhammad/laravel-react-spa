@@ -18,6 +18,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import FlutterDashOutlinedIcon from "@mui/icons-material/FlutterDashOutlined";
+import { Avatar } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -59,7 +62,6 @@ const Drawer = styled(MuiDrawer, {
     }),
 }));
 
-
 const DrawerHeader = styled("div")(({ theme }) => ({
     display: "flex",
     alignItems: "center",
@@ -68,6 +70,13 @@ const DrawerHeader = styled("div")(({ theme }) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
 }));
+
+const Array1 = [
+    { text: "Dashboard", icon: <DashboardOutlinedIcon />, path: "/" },
+    { text: "Blog", icon: <FlutterDashOutlinedIcon />, path: "/admin/posts" },
+];
+
+const Array2 = ["All mail", "Trash", "Spam"];
 
 export default function SideBar({ open, handleDrawerClose }) {
     const theme = useTheme();
@@ -83,47 +92,52 @@ export default function SideBar({ open, handleDrawerClose }) {
                     )}
                 </IconButton>
             </DrawerHeader>
+
             <Divider />
+
+            <Avatar sx={{mx : "auto", my: 2, border : "2px solid gray"}} alt="Cindy Baker" 
+            src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+            <Typography align="center" sx={{fontSize: "10px"}}>Nawara</Typography>
+            <Typography className="text-gray-300" align="center" sx={{fontSize: "10px"}}>Admin</Typography>
+            <Divider />
+
             <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map(
-                    (text, index) => (
-                        <ListItem
-                            key={text}
-                            disablePadding
-                            sx={{ display: "block" }}
+                {Array1.map((item) => (
+                    <ListItem
+                        key={item.text}
+                        disablePadding
+                        sx={{ display: "block" }}
+                    >
+                        <ListItemButton
+                            href={item.path}
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? "initial" : "center",
+                                px: 2.5,
+                            }}
                         >
-                            <ListItemButton
+                            <ListItemIcon
                                 sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? "initial" : "center",
-                                    px: 2.5,
+                                    minWidth: 0,
+                                    mr: open ? 3 : "auto",
+                                    justifyContent: "center",
                                 }}
                             >
-                                <ListItemIcon
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : "auto",
-                                        justifyContent: "center",
-                                    }}
-                                >
-                                    {index % 2 === 0 ? (
-                                        <InboxIcon />
-                                    ) : (
-                                        <MailIcon />
-                                    )}
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary={text}
-                                    sx={{ opacity: open ? 1 : 0 }}
-                                />
-                            </ListItemButton>
-                        </ListItem>
-                    )
-                )}
+                                {item.icon}
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={item.text}
+                                sx={{ opacity: open ? 1 : 0 }}
+                            />
+                        </ListItemButton>
+                    </ListItem>
+                ))}
             </List>
+
             <Divider />
+
             <List>
-                {["All mail", "Trash", "Spam"].map((text, index) => (
+                {Array2.map((text, index) => (
                     <ListItem
                         key={text}
                         disablePadding
