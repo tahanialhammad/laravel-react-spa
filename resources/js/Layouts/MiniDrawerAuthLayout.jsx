@@ -54,7 +54,8 @@ export default function MiniDrawerAuthLayout({ children }) {
 
                 <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                     <DrawerHeader />
-                    <Typography paragraph>{children}</Typography>
+                    {/* <div>{ localStorage.getItem("currentMode") } </div> */}
+                    <div className={localStorage.getItem("currentMode") ? localStorage.getItem("currentMode") : "light"}>{children}</div>
                 </Box>
             </Box>
         </ThemeProvider>
