@@ -9,8 +9,9 @@ import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { Link } from "@inertiajs/react";
 
-export default function TopbarRightCorner({ setMode }) {
+export default function TopbarRightCorner({ setMode, user }) {
     const theme = useTheme();
 
     // Dropdwen
@@ -86,9 +87,14 @@ export default function TopbarRightCorner({ setMode }) {
                         "aria-labelledby": "basic-button",
                     }}
                 >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem>
+                        <Link href={route("profile.edit")}>{user.name} </Link>
+                    </MenuItem>
+                    <MenuItem>
+                        <Link href={route("logout")} method="post">
+                            Logout
+                        </Link>
+                    </MenuItem>
                 </Menu>
             </div>
         </Stack>

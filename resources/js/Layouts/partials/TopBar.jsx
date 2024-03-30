@@ -30,7 +30,7 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-export default function TopBar({ open, handleDrawerOpen, setMode }) {
+export default function TopBar({ open, handleDrawerOpen, setMode, user }) {
     return (
         <AppBar position="fixed" open={open}>
             <Toolbar>
@@ -55,7 +55,7 @@ export default function TopBar({ open, handleDrawerOpen, setMode }) {
 
                 <Box sx={{ flexGrow: 1 }} />
 
-                <TopbarRightCorner setMode={setMode} />
+                <TopbarRightCorner setMode={setMode} user={user} />
             </Toolbar>
         </AppBar>
     );
