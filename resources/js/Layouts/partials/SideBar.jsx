@@ -95,10 +95,31 @@ export default function SideBar({ open, handleDrawerClose }) {
 
             <Divider />
 
-            <Avatar sx={{mx : "auto", my: 2, border : "2px solid gray"}} alt="Cindy Baker" 
-            src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-            <Typography align="center" sx={{fontSize: "10px"}}>Nawara</Typography>
-            <Typography className="text-gray-300" align="center" sx={{fontSize: "10px"}}>Admin</Typography>
+            <Avatar
+                sx={{
+                    mx: "auto",
+                    my: 2,
+                    border: "2px solid gray",
+                    width: open ? 88 : 44,
+                    height: open ? 88 : 44,
+                    transition : "0.5s"
+                }}
+                alt="Cindy Baker"
+                src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <Typography align="center" sx={{ fontSize: open ? "10px" : 0 }}>
+                Nawara
+            </Typography>
+
+            {/* <Typography className={open ? 'text-red-300' : 'text-gray-500'} align="center" sx={{ fontSize: "10px" }}> */}
+            {/* Or */}
+            <Typography
+                className={`text-sm ${open ? "" : "hidden"}`}
+                align="center"
+                sx={{ fontSize: "10px" }}
+            >
+                Admin
+            </Typography>
             <Divider />
 
             <List>
