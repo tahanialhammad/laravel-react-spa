@@ -21,6 +21,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import FlutterDashOutlinedIcon from "@mui/icons-material/FlutterDashOutlined";
 import { Avatar } from "@mui/material";
+import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 
 const drawerWidth = 240;
 
@@ -72,8 +73,13 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 const Array1 = [
-    { text: "Dashboard", icon: <DashboardOutlinedIcon />, path: "/" },
-    { text: "Blog", icon: <FlutterDashOutlinedIcon />, path: "/admin/posts" },
+    { text: "Dashboard", icon: <DashboardOutlinedIcon />, path: "dashboard" },
+    { text: "Blog", icon: <FlutterDashOutlinedIcon />, path: "admin.posts" },
+    {
+        text: "Customers",
+        icon: <PeopleAltOutlinedIcon />,
+        path: "admin.customers",
+    },
 ];
 
 const Array2 = ["All mail", "Trash", "Spam"];
@@ -102,7 +108,7 @@ export default function SideBar({ open, handleDrawerClose }) {
                     border: "2px solid gray",
                     width: open ? 88 : 44,
                     height: open ? 88 : 44,
-                    transition : "0.5s"
+                    transition: "0.5s",
                 }}
                 alt="Cindy Baker"
                 src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -130,7 +136,7 @@ export default function SideBar({ open, handleDrawerClose }) {
                         sx={{ display: "block" }}
                     >
                         <ListItemButton
-                            href={item.path}
+                            href={route(item.path)}
                             sx={{
                                 minHeight: 48,
                                 justifyContent: open ? "initial" : "center",
