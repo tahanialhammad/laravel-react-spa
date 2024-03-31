@@ -22,6 +22,7 @@ import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import FlutterDashOutlinedIcon from "@mui/icons-material/FlutterDashOutlined";
 import { Avatar } from "@mui/material";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import { amber, grey } from "@mui/material/colors";
 
 const drawerWidth = 240;
 
@@ -141,6 +142,11 @@ export default function SideBar({ open, handleDrawerClose }) {
                                 minHeight: 48,
                                 justifyContent: open ? "initial" : "center",
                                 px: 2.5,
+                                background: route().current(item.path)
+                                    ? theme.palette.mode === "dark"
+                                        ? grey[800]
+                                        : amber[300]
+                                    : null,
                             }}
                         >
                             <ListItemIcon
