@@ -4,7 +4,9 @@ import { Head } from '@inertiajs/react';
 
 export default function Dashboard({ auth }) {
     return (
-        <MiniDrawerAuthLayout>
+        <MiniDrawerAuthLayout
+        user={auth.user}
+        >
 
 {/* <AuthenticatedLayout
             user={auth.user}

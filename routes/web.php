@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CustomerController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,7 @@ use Inertia\Inertia;
 
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'welcome')->name('welcome');
-    Route::get('/services', 'services')->name('services'); 
+    Route::get('/services', 'services')->name('services');
     Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/LandingPage', 'LandingPage')->name('LandingPage');
@@ -66,7 +67,7 @@ Route::controller(SiteController::class)->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    
+
     //Posts
     Route::controller(PostController::class)->group(function () {
         Route::get('/admin/posts', 'index')->name('admin.posts');
@@ -75,6 +76,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/admin/create', 'store')->name('store');
         Route::delete('/admin/delete', 'destroy')->name('post.destroy');
         Route::patch('/admin/update', 'update')->name('post.update');
+    });
+
+    // Customers
+    Route::controller(CustomerController::class)->group(function () {
+        Route::get('/admin/customers', 'index')->name('admin.customers');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

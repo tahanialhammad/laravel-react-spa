@@ -22,7 +22,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
     ...theme.mixins.toolbar,
 }));
 
-export default function MiniDrawerAuthLayout({ children }) {
+export default function MiniDrawerAuthLayout({ user, children }) {
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {
@@ -48,7 +48,7 @@ export default function MiniDrawerAuthLayout({ children }) {
             <Box sx={{ display: "flex" }}>
                 <CssBaseline />
 
-                <TopBar open={open} handleDrawerOpen={handleDrawerOpen} setMode={setMode} />
+                <TopBar open={open} handleDrawerOpen={handleDrawerOpen} setMode={setMode}  user={user} />
 
                 <SideBar open={open} handleDrawerClose={handleDrawerClose} />
 
