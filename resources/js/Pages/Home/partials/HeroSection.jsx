@@ -36,31 +36,40 @@ export default function HeroSection() {
                                     animationSpeed={0.1}
                                     className="text-2xl font-bold tracking-tight text-gray-900 sm:text-6xl"
                                 >
-                                    Hand made with Nawara
+                                    Tahani Alhammad Webontwikkelaar
                                 </AnimatedText>
 
                                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                                    When you choose one of my products, you
-                                    choose not only high quality and exquisite
-                                    design, but also a unique experience that
-                                    reflects craftsmanship and extreme care. I
-                                    consider every piece to be a moment from me
-                                    to you, which makes the presence of my
-                                    products in your life a special and special
-                                    experience.
+                                    Mijn passie ligt in het creëren van
+                                    websites, waarbij ik me specifiek richt op
+                                    de front-end ontwikkeling van
+                                    Laravel-applicaties en en het maken van
+                                    WordPress websites voor MKB.
+                                    <br />
+                                    Bent u op zoek naar een betrouwbare en
+                                    getalenteerde front-end developer voor uw
+                                    onderneming? Zoek niet verder. Met mijn
+                                    diverse ervaring en up-to-date kennis van de
+                                    nieuwste technologieën, ben ik in staat om
+                                    voor uw bedrijf een hoogwaardige en
+                                    gebruiksvriendelijke front-end te
+                                    realiseren.
+                                    <br />
+                                    Neem vandaag nog contact met mij op en
+                                    ontdek hoe ik uw bedrijf kan transformeren!
                                 </p>
                                 <div className="mt-10 flex items-center justify-center gap-x-6">
                                     <a
                                         href="#"
                                         className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                     >
-                                        Shop now
+                                       More info
                                     </a>
                                     <a
                                         href="#"
                                         className="text-sm font-semibold leading-6 text-gray-900"
                                     >
-                                        Learn more
+                                        Contact
                                         <span aria-hidden="true">→</span>
                                     </a>
                                 </div>
@@ -76,7 +85,7 @@ export default function HeroSection() {
                 <div className="mx-auto max-w-2xl py-2 sm:py-12 lg:py-12">
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                         <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            Nawara
+                            Tahanina
                             <a
                                 href="https://www.linkedin.com/in/tahanialhammad/"
                                 className="font-semibold text-indigo-600"
@@ -85,12 +94,11 @@ export default function HeroSection() {
                                     className="absolute inset-0"
                                     aria-hidden="true"
                                 />
-                                Read more <span aria-hidden="true">&rarr;</span>
+                                Over me <span aria-hidden="true">&rarr;</span>
                             </a>
                         </div>
                     </div>
                 </div>
-             
             </div>
         </section>
     );
