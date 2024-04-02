@@ -42,6 +42,7 @@ export default function MenuItem({ item }) {
                     href={route(item.href)}
                     active={route().current(item.href)}
                     className="capitalize"
+                    method={item.method}
                 >
                     {item.name}
                 </AuthNavLink>

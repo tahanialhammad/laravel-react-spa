@@ -16,8 +16,8 @@ use \App\Models\Post;
 
 class AdminController extends Controller
 {
-    public function dashboard()
-    {
-        return Inertia::render('Admin/Dashboard/Dashboard');
-    }
+    // public function dashboard()
+    // {
+    //     return Inertia::render('Admin/Dashboard/Dashboard');
+    // }
 }

@@ -3,15 +3,16 @@ import { motion } from "framer-motion";
 
 export default function Categories() {
     const surroundingImages = [
-        'https://www.tahanina.nl/nawara/wp-content/uploads/2023/03/WhatsApp-Image-2023-03-13-at-12.39.37-PM.jpeg',
-        'https://www.tahanina.nl/nawara/wp-content/uploads/2019/01/rezen-2.png',
+        "https://www.tahanina.nl/nawara/wp-content/uploads/2023/03/WhatsApp-Image-2023-03-13-at-12.39.37-PM.jpeg",
+        "https://www.tahanina.nl/nawara/wp-content/uploads/2019/01/rezen-2.png",
     ];
 
     return (
         <div className="flex flex-col items-center">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Categories
-            </h1>
+            <h1 className="text-l font-thin text-red-500">Diensten</h1>
+            <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                Verwachte kenmerken
+            </h3>
             <div className="">
                 {surroundingImages.map((image, index) => (
                     <CategoryItem key={index} image={image} />

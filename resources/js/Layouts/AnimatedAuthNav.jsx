@@ -19,7 +19,7 @@ const sidebarVariants = {
         },
     },
 };
-export default function AnimatedAuthNav() {
+export default function AnimatedAuthNav({user}) {
     const [isOpen, toggleOpen] = useCycle(false, true);
 
     return (
@@ -34,7 +34,7 @@ export default function AnimatedAuthNav() {
                 className="backgroundttt bg-white absolute top-0 left-0 bottom-0 w-[300px]"
             />
             <MenuToggler toggle={() => toggleOpen()} />
-            <Navigation />
+            <Navigation user={user} />
         </motion.nav>
     );
 }
