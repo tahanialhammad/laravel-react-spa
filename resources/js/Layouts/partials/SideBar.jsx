@@ -23,6 +23,8 @@ import FlutterDashOutlinedIcon from "@mui/icons-material/FlutterDashOutlined";
 import { Avatar } from "@mui/material";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import { amber, grey } from "@mui/material/colors";
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+
 
 const drawerWidth = 240;
 
@@ -80,6 +82,11 @@ const Array1 = [
         text: "Customers",
         icon: <PeopleAltOutlinedIcon />,
         path: "admin.customers",
+    },
+    {
+        text: "Add customer",
+        icon: <PersonAddAltOutlinedIcon />,
+        path: "admin.addUser",
     },
 ];
 

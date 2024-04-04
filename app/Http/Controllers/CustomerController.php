@@ -16,4 +16,10 @@ class CustomerController extends Controller
         $users = User::all();
         return Inertia::render('Admin/Customers/Customers', compact('users') );
     }
+    public function addUser()
+    {
+        $users = User::all();
+        return Inertia::render('Admin/Customers/AddUser', compact('users') );
+    }
+    
 }

@@ -6,9 +6,9 @@ import Toolbar from "@mui/material/Toolbar";
 
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import TopbarLeftCorner from "./TopbarLeftCorner";
+import TopbarRightCorner from "./TopbarRightCorner";
 
-import TopbarLeftCorner from "./topbarLeftCorner";
-import TopbarRightCorner from "./topbarRightCorner";
 
 const drawerWidth = 240;
 
