@@ -13,6 +13,31 @@
     color: #f0ffff;
 }
 
+
+
+
+
+
+  /* SCROLLBAR
+  /* width */
+div  ::-webkit-scrollbar {
+  width: 6px;
+  height: 3px;
+}
+
+  /* Track */
+div ::-webkit-scrollbar-track {
+    background: #e4e6e6;
+    border-radius: 4px;
+  }
+
+  /* Handle */
+ div ::-webkit-scrollbar-thumb {
+    background: #31383d;
+    border-radius: 4px;
+  }
+
+
 /* landing page */
 /* .textContainer {
     @apply flex flex-col h-full px-2 py-28 md:px-52;

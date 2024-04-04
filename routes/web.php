@@ -73,6 +73,7 @@ Route::middleware(['auth','verified' ,'is_admin'])->group(function () {
     // Customers
     Route::controller(CustomerController::class)->group(function () {
         Route::get('/admin/customers', 'index')->name('admin.customers');
+        Route::get('/admin/add-user', 'addUser')->name('admin.addUser');
     });
 
    
