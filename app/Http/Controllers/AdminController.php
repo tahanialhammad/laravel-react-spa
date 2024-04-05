@@ -25,4 +25,9 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/MyCalendar/MyCalendar');
     }
+
+    public function faqs()
+    {
+        return Inertia::render('Admin/Faqs/Faqs');
+    }
 }
