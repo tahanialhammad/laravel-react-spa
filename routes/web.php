@@ -80,6 +80,8 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         // MyCalendar
         Route::get('/admin/mycalendar', 'MyCalendar')->name('admin.mycalendar');
+        // FAQ
+        Route::get('/admin/faqs', 'faqs')->name('admin.faqs');
     });
 });
 

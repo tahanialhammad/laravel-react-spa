@@ -25,6 +25,7 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import { amber, grey } from "@mui/material/colors";
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 
 const drawerWidth = 240;
@@ -96,7 +97,13 @@ const Array1 = [
     },
 ];
 
-const Array2 = ["All mail", "Trash", "Spam"];
+const Array2 = [
+    {
+        text: "FAQ",
+        icon: <HelpOutlineOutlinedIcon />,
+        path: "admin.faqs",
+    },
+];
 
 export default function SideBar({ open, handleDrawerClose }) {
     const theme = useTheme();
@@ -183,17 +190,23 @@ export default function SideBar({ open, handleDrawerClose }) {
             <Divider />
 
             <List>
-                {Array2.map((text, index) => (
+                {Array2.map((item) => (
                     <ListItem
-                        key={text}
+                        key={item.text}
                         disablePadding
                         sx={{ display: "block" }}
                     >
                         <ListItemButton
+                            href={route(item.path)}
                             sx={{
                                 minHeight: 48,
                                 justifyContent: open ? "initial" : "center",
                                 px: 2.5,
+                                background: route().current(item.path)
+                                    ? theme.palette.mode === "dark"
+                                        ? grey[800]
+                                        : amber[300]
+                                    : null,
                             }}
                         >
                             <ListItemIcon
@@ -203,10 +216,10 @@ export default function SideBar({ open, handleDrawerClose }) {
                                     justifyContent: "center",
                                 }}
                             >
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                {item.icon}
                             </ListItemIcon>
                             <ListItemText
-                                primary={text}
+                                primary={item.text}
                                 sx={{ opacity: open ? 1 : 0 }}
                             />
                         </ListItemButton>
