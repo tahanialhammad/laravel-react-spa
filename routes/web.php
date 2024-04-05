@@ -82,6 +82,9 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
         Route::get('/admin/mycalendar', 'MyCalendar')->name('admin.mycalendar');
         // FAQ
         Route::get('/admin/faqs', 'faqs')->name('admin.faqs');
+        // OrdersChart
+        Route::get('/admin/OrdersChart', 'OrdersChart')->name('admin.ordersChart');
+
     });
 });
 
