@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function AnimatedButton() {
+export default function AnimatedButton1() {
     return (
         <div>
             <h1> initial start point, animate end point CSS object</h1>

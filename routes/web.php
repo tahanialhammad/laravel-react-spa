@@ -56,9 +56,9 @@ Route::controller(SiteController::class)->group(function () {
 //     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 // });
 
-    // Auth only admin
-Route::middleware(['auth','verified' ,'is_admin'])->group(function () {   
-  //  Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+// Auth only admin
+Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
+    //  Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     //Posts
     Route::controller(PostController::class)->group(function () {
@@ -76,7 +76,11 @@ Route::middleware(['auth','verified' ,'is_admin'])->group(function () {
         Route::get('/admin/add-user', 'addUser')->name('admin.addUser');
     });
 
-   
+
+    Route::controller(AdminController::class)->group(function () {
+        // MyCalendar
+        Route::get('/admin/mycalendar', 'MyCalendar')->name('admin.mycalendar');
+    });
 });
 
 // Auth users and admin
