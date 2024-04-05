@@ -2,7 +2,7 @@ import SiteLayout from "@/Layouts/SiteLayout";
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedNav from "./partials/AnimatedNav";
-import AnimatedButton from "./partials/animatedButton";
+import AnimatedButton1 from "./partials/AnimatedButton1";
 import AnimatedButton2 from "./partials/AnimatedButton2";
 import AnimatedExit from "./partials/AnimatedExit";
 import DelayType from "./partials/DelayType";
@@ -20,7 +20,7 @@ export default function FramerMotion() {
                 {/* https://www.framer.com/motion/introduction/ */}
                 <h1> Framer Motion</h1>
                 <hr />
-                <AnimatedButton />
+                <AnimatedButton1 />
                 <hr />
                 <AnimatedButton2 />
                 <hr />

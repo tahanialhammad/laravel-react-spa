@@ -24,6 +24,7 @@ import { Avatar } from "@mui/material";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import { amber, grey } from "@mui/material/colors";
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 
 const drawerWidth = 240;
@@ -87,6 +88,11 @@ const Array1 = [
         text: "Add customer",
         icon: <PersonAddAltOutlinedIcon />,
         path: "admin.addUser",
+    },
+    {
+        text: "My Calendar",
+        icon: <CalendarMonthOutlinedIcon />,
+        path: "admin.mycalendar",
     },
 ];
 
