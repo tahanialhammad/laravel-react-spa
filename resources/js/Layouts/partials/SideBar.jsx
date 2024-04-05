@@ -26,6 +26,7 @@ import { amber, grey } from "@mui/material/colors";
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import InsightsOutlinedIcon from '@mui/icons-material/InsightsOutlined';
 
 
 const drawerWidth = 240;
@@ -102,6 +103,11 @@ const Array2 = [
         text: "FAQ",
         icon: <HelpOutlineOutlinedIcon />,
         path: "admin.faqs",
+    },
+    {
+        text: "Orders Chart",
+        icon: <InsightsOutlinedIcon />,
+        path: "admin.ordersChart",
     },
 ];
 

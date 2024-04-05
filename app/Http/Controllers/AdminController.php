@@ -30,4 +30,9 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/Faqs/Faqs');
     }
+    
+    public function OrdersChart()
+    {
+        return Inertia::render('Admin/OrdersChart/OrdersChart');
+    }
 }
