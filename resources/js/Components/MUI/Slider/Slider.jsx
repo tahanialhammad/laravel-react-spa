@@ -16,7 +16,6 @@ export default function Slider() {
     return (
         <Container
             sx={{
-                // mt:2.5
                 display: "flex",
                 height: "60vh",
             }}
