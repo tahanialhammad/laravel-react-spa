@@ -54,7 +54,7 @@ export default function Slider() {
                             alignItems={"center"}
                         >
                             <Typography sx={{ color: "#333" }} variant="h4">
-                                Handmade bag
+                                Handmade bags
                             </Typography>
                             <Typography
                                 sx={{ color: "#ffc8dd", ml: 1 }}
