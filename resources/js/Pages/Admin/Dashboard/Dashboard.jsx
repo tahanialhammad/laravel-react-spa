@@ -2,6 +2,7 @@ import Slider from "@/Components/MUI/Slider/Slider";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import MiniDrawerAuthLayout from "@/Layouts/MiniDrawerAuthLayout";
 import { Head } from "@inertiajs/react";
+import { Stack } from "@mui/material";
 
 export default function Dashboard({ auth }) {
     return (
@@ -30,20 +31,28 @@ export default function Dashboard({ auth }) {
                         </div>
                         <div className="w-1/4">
                             <div className="bg-gray-700 overflow-hidden shadow-sm sm:rounded-lg mb-1 p-4">
-                            <h3>Transfer</h3>
-                            <div className="flex items-center">
-                                <h3 className="font-bold text-xl">1 Transfer</h3>
-                                <span className="text-xs ms-2">
-                                Waiting to be received
-                                </span>
-                            </div>
+                                <h3>Transfer</h3>
+                                <div className="flex items-center">
+                                    <h3 className="font-bold text-xl">
+                                        1 Transfer
+                                    </h3>
+                                    <span className="text-xs ms-2">
+                                        Waiting to be received
+                                    </span>
+                                </div>
                             </div>
                             <div className="bg-gray-700 overflow-hidden shadow-sm sm:rounded-lg p-4">
-                                ffffff
+                                Project state 40%
                             </div>
                         </div>
                         <div className="w-1/4 bg-gradient-to-r from-violet-500 to-fuchsia-500 overflow-hidden shadow-sm sm:rounded-lg p-4">
-                            ffffff
+                           <div className="mb-2">Project Back-end & Front-end packages </div> 
+                            <Stack sx={{ gap: 2 }} direction={"row"}>
+                                <img src=".\images\laravel.png" alt="" className="w-10" />
+                                <img src=".\images\React.png" alt="" className="w-10" />
+                                <img src=".\images\Tailwind.png" alt="" className="w-10" />
+                                <img src=".\images\mui.png" alt="" className="w-10" />
+                            </Stack>
                         </div>
                     </div>
 
