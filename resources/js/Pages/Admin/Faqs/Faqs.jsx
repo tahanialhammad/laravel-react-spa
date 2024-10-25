@@ -16,6 +16,14 @@ const FaqsArray = [
         faq: "FAQ 2",
         answer: " Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
     },
+    {
+        faq: "FAQ 3",
+        answer: " Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+    },
+    {
+        faq: "FAQ 4",
+        answer: " Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+    },
 ];
 
 export default function Faqs({ auth }) {
