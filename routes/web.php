@@ -33,6 +33,8 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/LandingPage', 'LandingPage')->name('LandingPage');
     Route::get('/LayoutsExample', 'LayoutsExample')->name('LayoutsExample');
     Route::get('/TestCode', 'TestCode')->name('TestCode');
+    Route::get('/shop', 'shop')->name('shop');
+
 
     Route::get('/posts', 'posts')->name('posts');
     Route::get('/posts/{post}', 'showPost')->name('showPost');

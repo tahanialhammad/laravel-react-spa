@@ -41,6 +41,13 @@ class SiteController extends Controller
         ]);
     }
 
+    public function shop()
+    {
+        return Inertia::render('Shop/Shop', [
+           
+        ]);
+    }
+
     public function posts()
     {
         $posts = Post::with('user')->get();
