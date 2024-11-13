@@ -9,6 +9,7 @@ import HoverDropDowen from "@/Components/HoverDropDowen";
 
 const navigation = [
     { name: "Home", href: "welcome" },
+    { name: "Shop", href: "shop" },
     { name: "Services", href: "services" },
     { name: "About", href: "about" },
     { name: "Blog", href: "posts" },
@@ -40,7 +41,7 @@ export default function SiteNav({ user }) {
                 >
                     <div className="flex lg:flex-1">
                         <Link href="/" className="-m-1.5 p-1.5">
-                            <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                            <ApplicationLogo className="block h-12 w-auto fill-current text-gray-800" />
                         </Link>
                     </div>
                     <div className="flex lg:hidden">
