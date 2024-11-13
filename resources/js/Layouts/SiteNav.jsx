@@ -9,7 +9,7 @@ import HoverDropDowen from "@/Components/HoverDropDowen";
 
 const navigation = [
     { name: "Home", href: "welcome" },
-    { name: "Shop", href: "shop" },
+    { name: "Shop", href: "products" },
     { name: "Services", href: "services" },
     { name: "About", href: "about" },
     { name: "Blog", href: "posts" },
