@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/LandingPage', 'LandingPage')->name('LandingPage');
     Route::get('/LayoutsExample', 'LayoutsExample')->name('LayoutsExample');
     Route::get('/TestCode', 'TestCode')->name('TestCode');
-    Route::get('/shop', 'shop')->name('shop');
+
 
 
     Route::get('/posts', 'posts')->name('posts');
@@ -43,6 +44,12 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/framer-motion', 'FramerMotion')->name('FramerMotion');
     Route::get('/Toggle', 'Toggle')->name('Toggle');
 });
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/products', 'index')->name('products');
+    Route::post('/products/{product}/favorite', 'toggleFavorite')->middleware('auth');
+});
+
 
 //simple test rout
 // Route::post('/create', function (Request $request) {
@@ -86,7 +93,6 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
         Route::get('/admin/faqs', 'faqs')->name('admin.faqs');
         // OrdersChart
         Route::get('/admin/OrdersChart', 'OrdersChart')->name('admin.ordersChart');
-
     });
 });
 

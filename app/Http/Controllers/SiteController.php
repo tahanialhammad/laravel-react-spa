@@ -13,6 +13,7 @@ use Inertia\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use \App\Models\Post;
+use App\Models\Product;
 
 class SiteController extends Controller
 {
@@ -38,13 +39,6 @@ class SiteController extends Controller
     {
         return Inertia::render('Contact', [
             'name' => 'Tahani Alhammad'
-        ]);
-    }
-
-    public function shop()
-    {
-        return Inertia::render('Shop/Shop', [
-           
         ]);
     }
 
