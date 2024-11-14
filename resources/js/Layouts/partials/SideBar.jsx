@@ -20,14 +20,15 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import FlutterDashOutlinedIcon from "@mui/icons-material/FlutterDashOutlined";
-import { Avatar } from "@mui/material";
+import { Avatar, Link } from "@mui/material";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import { amber, grey } from "@mui/material/colors";
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import InsightsOutlinedIcon from '@mui/icons-material/InsightsOutlined';
-
+import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 
 const drawerWidth = 240;
 
@@ -96,6 +97,11 @@ const Array1 = [
         icon: <CalendarMonthOutlinedIcon />,
         path: "admin.mycalendar",
     },
+    {
+        text: "Shop",
+        icon: <LocalGroceryStoreOutlinedIcon />,
+        path: "admin.products",
+    },
 ];
 
 const Array2 = [
@@ -117,6 +123,9 @@ export default function SideBar({ open, handleDrawerClose }) {
     return (
         <Drawer variant="permanent" open={open}>
             <DrawerHeader>
+                <Link href="/" className="mx-auto">
+                    <ApplicationLogo className="block h-12 w-auto fill-current text-gray-800" />
+                </Link>
                 <IconButton onClick={handleDrawerClose}>
                     {theme.direction === "rtl" ? (
                         <ChevronRightIcon />
