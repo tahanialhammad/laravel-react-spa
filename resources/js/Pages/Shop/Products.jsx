@@ -1,12 +1,8 @@
 import React from "react";
 import SiteLayout from "@/Layouts/SiteLayout";
 import { Link } from "@mui/material";
-//import { useRoute } from "@vendor/tightenco/ziggy/src/js";
-import { useRoute } from 'ziggy-js';
 
 export default function Products({ products, userFavorites }) {
-    const route = useRoute();
-
     function toggleFavorite(productId) {
         return (e) => {
             e.preventDefault();
