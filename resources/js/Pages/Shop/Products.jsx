@@ -1,14 +1,17 @@
 import React from "react";
 import SiteLayout from "@/Layouts/SiteLayout";
 import { Link } from "@mui/material";
+//import { useRoute } from "@vendor/tightenco/ziggy/src/js";
+import { useRoute } from 'ziggy-js';
 
 export default function Products({ products, userFavorites }) {
+    const route = useRoute();
+
     function toggleFavorite(productId) {
         return (e) => {
             e.preventDefault();
             //  alert(productId);
             post(route("products.favorite", { product: productId }));
-
             //  post(`/products/${productId}/favorite`);
             // post(`/products/${productId}/favorite`, {}, {
             //     onSuccess: () => alert('Favorite toggled!'),
@@ -51,9 +54,17 @@ export default function Products({ products, userFavorites }) {
                                             />
                                             <div className="px-1 py-4">
                                                 <div className="flex items-center justify-between mb-3">
-                                                    <Link href={`/products/${product.id}`} className="block text-xl text-blue-gray-900">
+                                                    {/* <Link href={`/products/${product.id}`} className="block text-xl text-blue-gray-900">
+                                                        {product.name}
+                                                    </Link> */}
+
+                                                    <Link
+                                                       href={route('products.show',product )}
+                                                        className="block text-xl text-blue-gray-900"
+                                                    >
                                                         {product.name}
                                                     </Link>
+
                                                     <p className="flex items-center gap-1.5 font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
                                                         <svg
                                                             xmlns="http://www.w3.org/2000/svg"
@@ -91,25 +102,30 @@ export default function Products({ products, userFavorites }) {
 
                                 <div>
                                     {/* need to make it as a component */}
-                                    {products.links.map((link) => (
-                                        link.url ?
-                                        <Link
-                                            key={link.label}
-                                            href={link.url}
-                                            dangerouslySetInnerHTML={{
-                                                __html: link.label,
-                                            }}
-                                            className={`p-2 ${link.active ? "text-white bg-indigo-300 font-bold" : ""}`}
-                                        />
-                                        :
-                                        <span
-                                        key={link.label}
-                                        dangerouslySetInnerHTML={{
-                                            __html: link.label,
-                                        }}
-                                        className="p-2 text-slate-300"
-                                        />
-                                    ))}
+                                    {products.links.map((link) =>
+                                        link.url ? (
+                                            <Link
+                                                key={link.label}
+                                                href={link.url}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: link.label,
+                                                }}
+                                                className={`p-2 ${
+                                                    link.active
+                                                        ? "text-white bg-indigo-300 font-bold"
+                                                        : ""
+                                                }`}
+                                            />
+                                        ) : (
+                                            <span
+                                                key={link.label}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: link.label,
+                                                }}
+                                                className="p-2 text-slate-300"
+                                            />
+                                        )
+                                    )}
                                 </div>
                             </div>
                         </div>
