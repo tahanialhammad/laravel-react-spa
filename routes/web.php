@@ -47,8 +47,12 @@ Route::controller(SiteController::class)->group(function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/products', 'index')->name('products');
-    Route::post('/products/{product}/favorite', 'toggleFavorite')->middleware('auth');
+    // Route::post('/products/{product}/favorite', 'toggleFavorite')->middleware('auth');
 });
+
+//test
+Route::post('/products/{product}/favorite', [ProductController::class, 'toggleFavorite'])->name('products.favorite');
+
 
 
 //simple test rout
