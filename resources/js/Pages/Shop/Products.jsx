@@ -2,7 +2,6 @@ import React from "react";
 import SiteLayout from "@/Layouts/SiteLayout";
 
 export default function Store({products, userFavorites}) {
-    const bg = "./images/candel-no-bg.png";
 
     return (
         <SiteLayout>
@@ -17,12 +16,6 @@ export default function Store({products, userFavorites}) {
                                 {products.map((product) => (         
                                     <div key={product.id} 
                                     className="bg-transparent rounded-lg relative">
-
-                        <button onClick={() => toggleFavorite(product.id)}>
-                            {userFavorites.includes(product.id) ? "💖" : "🤍"}
-                        </button>
-
-
 
                                         <a
                                             href=""
