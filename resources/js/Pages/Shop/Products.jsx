@@ -51,9 +51,9 @@ export default function Products({ products, userFavorites }) {
                                             />
                                             <div className="px-1 py-4">
                                                 <div className="flex items-center justify-between mb-3">
-                                                    <h5 className="block text-xl text-blue-gray-900">
+                                                    <Link href={`/products/${product.id}`} className="block text-xl text-blue-gray-900">
                                                         {product.name}
-                                                    </h5>
+                                                    </Link>
                                                     <p className="flex items-center gap-1.5 font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
                                                         <svg
                                                             xmlns="http://www.w3.org/2000/svg"
