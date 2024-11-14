@@ -15,6 +15,11 @@ class PostController extends Controller
      */
     public function index()
     {
+        // if (Auth()->user()->is_admin) {
+        //     return $this->showAdminPosts();
+        // }
+        // return $this->showUserPost();
+
         //$posts = Post::with('user')->get();
 
         $posts = Post::with('user')->get()->map(function ($post) {

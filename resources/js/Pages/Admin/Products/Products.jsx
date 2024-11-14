@@ -2,7 +2,8 @@ import DataGridTable from "@/Components/MUI/DataGridTable";
 import MiniDrawerAuthLayout from "@/Layouts/MiniDrawerAuthLayout";
 import React, { useState, useEffect } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
+import PrimaryButton from "@/Components/PrimaryButton";
 
 const columns = [
     { field: "id", headerName: "ID", width: 90 },
@@ -11,11 +12,15 @@ const columns = [
     { field: "stock", headerName: "Stock", flex: 1 },
 ];
 
-
-export default function Products({ auth , products}) {
+export default function Products({ auth, products }) {
     return (
         <MiniDrawerAuthLayout user={auth.user}>
-            <div>My Shop </div>
+            <div className="flex justify-between w-full">
+                <h1>My Shop</h1>
+                <div>
+                    <Link href="/products/create" >Add Product</Link>
+                </div>
+            </div>
 
             <DataGrid
                 checkboxSelection
