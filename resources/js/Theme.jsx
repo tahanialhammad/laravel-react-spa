@@ -1,4 +1,4 @@
-import { amber, deepOrange, grey } from '@mui/material/colors';
+import { amber, red, deepOrange, grey } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 export const getDesignTokens = (mode) => ({
@@ -8,6 +8,7 @@ export const getDesignTokens = (mode) => ({
         ? {
             // palette values for light mode
             primary: amber,
+            secondary: grey,
             divider: amber[200],
             text: {
               primary: grey[900],
@@ -20,6 +21,7 @@ export const getDesignTokens = (mode) => ({
         : {
             // palette values for dark mode
             primary: grey,
+            secondary: grey,
             divider: grey[700],
             background: {
               default: grey[900],
