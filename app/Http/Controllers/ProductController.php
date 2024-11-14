@@ -55,9 +55,19 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        if (Auth()->user()) {
+            if (Auth()->user()->is_admin) {
+                return $this->showAdminProduct($product);
+            }
+        }
+
+        return Inertia('Shop/Show', compact('product'));
     }
 
+    public function showAdminProduct(Product $product)
+    {
+        return Inertia('Admin/Products/Show', compact('product'));
+    }
     /**
      * Show the form for editing the specified resource.
      */
