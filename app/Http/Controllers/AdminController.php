@@ -13,6 +13,7 @@ use Inertia\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use \App\Models\Post;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -34,5 +35,11 @@ class AdminController extends Controller
     public function OrdersChart()
     {
         return Inertia::render('Admin/OrdersChart/OrdersChart');
+    }
+
+    public function AdminProducts()
+    {
+        $products = Product::all();
+        return Inertia::render('Admin/Products/Products', compact('products') );
     }
 }

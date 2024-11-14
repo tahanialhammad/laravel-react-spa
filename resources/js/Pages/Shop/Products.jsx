@@ -7,12 +7,15 @@ export default function Products({ products, userFavorites }) {
         return (e) => {
             e.preventDefault();
             //  alert(productId);
-            post(`/products/${productId}/favorite`);
+            post(route('products.favorite', { product: productId }));
+
+          //  post(`/products/${productId}/favorite`);
             // post(`/products/${productId}/favorite`, {}, {
             //     onSuccess: () => alert('Favorite toggled!'),
             // });
         };
     }
+
 
     return (
         <SiteLayout>
