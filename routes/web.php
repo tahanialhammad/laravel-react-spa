@@ -12,6 +12,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+//simple test rout
+// Route::post('/create', function (Request $request) {
+//     dd($request->all());
+// });
 
 
 // Guset Site pages
@@ -35,42 +39,47 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/LayoutsExample', 'LayoutsExample')->name('LayoutsExample');
     Route::get('/TestCode', 'TestCode')->name('TestCode');
 
-
-
+    // Blog
     Route::get('/posts', 'posts')->name('posts');
     Route::get('/posts/{post}', 'showPost')->name('showPost');
     // Route::get('/create', 'createPost')->name('createPost');
     // Route::post('/create', 'savePost')->name('savePost');
+
     Route::get('/framer-motion', 'FramerMotion')->name('FramerMotion');
     Route::get('/Toggle', 'Toggle')->name('Toggle');
 });
 
-Route::controller(ProductController::class)->group(function () {
-    Route::get('/products', 'index')->name('products');
-    // Route::post('/products/{product}/favorite', 'toggleFavorite')->middleware('auth');
-});
 
-//test
-Route::post('/products/{product}/favorite', [ProductController::class, 'toggleFavorite'])->name('products.favorite');
+    // Route::controller(ProductController::class)->group(function () {
+    //     Route::get('/products', 'index')->name('products');
+    //     // Route::post('/products/{product}/favorite', 'toggleFavorite')->middleware('auth');
+    // });
+    //test
+  //  Route::post('/products/{product}/favorite', [ProductController::class, 'toggleFavorite'])->name('products.favorite');
+
+  
+    Route::resource('products', ProductController::class)->names([
+        'index'   => 'products.index',
+        'create'  => 'products.create',
+        'store'   => 'products.store',
+        'show'    => 'products.show',
+        'edit'    => 'products.edit',
+        'update'  => 'products.update',
+        'destroy' => 'products.destroy',
+    ]);
 
 
 
-//simple test rout
-// Route::post('/create', function (Request $request) {
-//     dd($request->all());
-// });
+    // Route::get('/dashboard', function () {
+    //     return Inertia::render('Dashboard');
+    // })->middleware(['auth', 'verified'])->name('dashboard');
 
+    // Route::middleware(['auth', 'verified'])->group(function () {
+    //     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    // });
 
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware(['auth', 'verified'])->group(function () {
-//     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-// });
-
-// Auth only admin
-Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
+    // Auth only admin
+    Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     //  Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     //Posts
@@ -100,7 +109,6 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
 
         //Shop
         Route::get('/admin/products', 'AdminProducts')->name('admin.products');
-
     });
 });
 

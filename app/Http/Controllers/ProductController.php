@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Http\Request;
+
 use Inertia\Inertia;
 
 class ProductController extends Controller
@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::latest()->paginate(2);
 
         return Inertia::render('Shop/Products', [
             'products' => $products,
@@ -27,15 +27,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia('Admin/Products/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
         //
     }

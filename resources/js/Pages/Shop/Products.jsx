@@ -7,15 +7,14 @@ export default function Products({ products, userFavorites }) {
         return (e) => {
             e.preventDefault();
             //  alert(productId);
-            post(route('products.favorite', { product: productId }));
+            post(route("products.favorite", { product: productId }));
 
-          //  post(`/products/${productId}/favorite`);
+            //  post(`/products/${productId}/favorite`);
             // post(`/products/${productId}/favorite`, {}, {
             //     onSuccess: () => alert('Favorite toggled!'),
             // });
         };
     }
-
 
     return (
         <SiteLayout>
@@ -27,7 +26,7 @@ export default function Products({ products, userFavorites }) {
                         <div className="flex items-center justify-center">
                             <div className="container mx-auto px-4">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-                                    {products.map((product) => (
+                                    {products.data.map((product) => (
                                         <div
                                             key={product.id}
                                             className="bg-transparent rounded-lg relative"
@@ -87,6 +86,29 @@ export default function Products({ products, userFavorites }) {
                                                 </button>
                                             </div>
                                         </div>
+                                    ))}
+                                </div>
+
+                                <div>
+                                    {/* need to make it as a component */}
+                                    {products.links.map((link) => (
+                                        link.url ?
+                                        <Link
+                                            key={link.label}
+                                            href={link.url}
+                                            dangerouslySetInnerHTML={{
+                                                __html: link.label,
+                                            }}
+                                            className={`p-2 ${link.active ? "text-white bg-indigo-300 font-bold" : ""}`}
+                                        />
+                                        :
+                                        <span
+                                        key={link.label}
+                                        dangerouslySetInnerHTML={{
+                                            __html: link.label,
+                                        }}
+                                        className="p-2 text-slate-300"
+                                        />
                                     ))}
                                 </div>
                             </div>
