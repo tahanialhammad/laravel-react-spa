@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(2);
+        $products = Product::latest()->paginate(20);
 
         return Inertia::render('Shop/Products', [
             'products' => $products,
@@ -89,7 +89,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect('admin/products')->with('message', 'Prodect was deleted!');
     }
 
     public function toggleFavorite(Product $product)
