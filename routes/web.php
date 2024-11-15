@@ -57,18 +57,8 @@ Route::controller(SiteController::class)->group(function () {
     //test
   //  Route::post('/products/{product}/favorite', [ProductController::class, 'toggleFavorite'])->name('products.favorite');
 
-  
-    Route::resource('products', ProductController::class)->names([
-        'index'   => 'products.index',
-        'create'  => 'products.create',
-        'store'   => 'products.store',
-        'show'    => 'products.show',
-        'edit'    => 'products.edit',
-        'update'  => 'products.update',
-        'destroy' => 'products.destroy',
-    ]);
-
-
+   // Products in shop
+    Route::resource('products', ProductController::class);
 
     // Route::get('/dashboard', function () {
     //     return Inertia::render('Dashboard');
@@ -98,6 +88,8 @@ Route::controller(SiteController::class)->group(function () {
         Route::get('/admin/add-user', 'addUser')->name('admin.addUser');
     });
 
+    // Products
+     Route::resource('products', ProductController::class)->only(['create', 'store', 'edit', 'update', 'destroy']);
 
     Route::controller(AdminController::class)->group(function () {
         // MyCalendar
