@@ -5,12 +5,21 @@ import { Link } from "@mui/material";
 const columns = [
     { field: "id", headerName: "ID", width: 90 },
     // { field: "name", headerName: "Product name", flex: 1 },
-     { field: "name", headerName: "Product name", flex: 1,
-      renderCell: (params) => (
-        <Link href={`/products/${params.row.id}`} color="primary">
-            {params.value}
-        </Link>
-      )
+    {
+        field: "name",
+        headerName: "Product name",
+        flex: 1,
+        renderCell: (params) => (
+            <Link
+                href={`/products/${params.row.id}`}
+                style={{
+                    color: "inherit",
+                    textDecoration: "none",
+                }}
+            >
+                {params.value}
+            </Link>
+        ),
     },
     { field: "price", headerName: "Product price", flex: 1 },
     { field: "stock", headerName: "Stock", flex: 1 },
@@ -22,7 +31,7 @@ export default function Products({ auth, products }) {
             <div className="flex justify-between w-full">
                 <h1>My Shop</h1>
                 <div>
-                    <Link href="/products/create" >Add Product</Link>
+                    <Link href="/products/create">Add Product</Link>
                 </div>
             </div>
 
