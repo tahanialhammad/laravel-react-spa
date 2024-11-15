@@ -17,7 +17,7 @@ export default function FlashMessage({
     return (
         <div
             {...props}
-            className={`w-full mb-2 select-none border-l-4 border-indigo-400 bg-indigo-100 p-4 font-medium hover:border-indigo-500 
+            className={`w-full mb-2 dark:text-black select-none border-l-4 border-indigo-400 bg-indigo-100 p-4 font-medium hover:border-indigo-500 
                 ${className}
                 ${FlashMessagelevel}
                 `}

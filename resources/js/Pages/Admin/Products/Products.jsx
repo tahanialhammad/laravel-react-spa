@@ -31,7 +31,7 @@ export default function Products({ auth, products }) {
             <div className="flex justify-between w-full">
                 <h1>My Shop</h1>
                 <div>
-                    <Link href="/products/create">Add Product</Link>
+                    <Link href={route('products.create')}>Add Product</Link>
                 </div>
             </div>
 
