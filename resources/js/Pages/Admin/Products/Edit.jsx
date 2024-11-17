@@ -13,7 +13,8 @@ export default function Update({ auth , product}) {
 
     function createProduct(e) {
         e.preventDefault();
-        put(`/products/${product.id}`);
+        // put(`/products/${product.id}`);
+        put(route('products.update' , product));
     }
 
     return (

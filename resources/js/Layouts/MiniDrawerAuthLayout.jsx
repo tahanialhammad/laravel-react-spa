@@ -91,7 +91,7 @@ export default function MiniDrawerAuthLayout({ user, children }) {
                         <div>
                             {/* Flash message */}
                             {flashMsg && (
-                                <FlashMessage level="success">
+                                <FlashMessage level={flash.messageType ? flash.messageType : 'info' }>
                                     {flashMsg}
                                 </FlashMessage>
                             )}

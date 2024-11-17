@@ -17,7 +17,10 @@ export default function Show({ auth, product }) {
                 </div>
                 <div className="w-1/4">
                     <DeleteProduct product={product} />
-                    <PrimaryLinkButton href={`/products/${product.id}/edit`} className="">
+                    {/* <PrimaryLinkButton href={`/products/${product.id}/edit`} className="">
+                        Update
+                    </PrimaryLinkButton> */}
+                      <PrimaryLinkButton href={route('products.edit' , product)} className="">
                         Update
                     </PrimaryLinkButton>
                 </div>

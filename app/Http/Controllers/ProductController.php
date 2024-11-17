@@ -92,7 +92,9 @@ class ProductController extends Controller
 
         $product->update($updateProduct);
 
-        return redirect('admin/products')->with('message', 'Products was updated!');
+        return redirect('admin/products')
+        ->with('message', 'Products was updated!')
+        ->with('messageType', 'success');
     }
 
     /**

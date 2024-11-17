@@ -12,7 +12,11 @@ export default function FlashMessage({
     } else if (level === "success") {
         FlashMessagelevel =
             "border-green-400 bg-green-100 hover:border-green-500 ";
+    } else if (level === "info") {
+        FlashMessagelevel =
+            "border-blue-400 bg-blue-100 hover:border-blue-500 ";
     }
+
 
     return (
         <div
