@@ -114,6 +114,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Blog
+    Route::resource('myposts', PostController::class);
+    Route::delete('/myposts', [PostController::class, 'destroy'])->name('myposts.destroy');
+
     // Shop
     Route::post('/favorites', [FavoriteController::class, 'toggleFavorite'])->name('product.toggleFavorite');
 });

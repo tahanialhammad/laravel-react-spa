@@ -15,22 +15,21 @@ class PostController extends Controller
      */
     public function index()
     {
-        // if (Auth()->user()->is_admin) {
-        //     return $this->showAdminPosts();
-        // }
-        // return $this->showUserPost();
-
-        //$posts = Post::with('user')->get();
-
-        $posts = Post::with('user')->get()->map(function ($post) {
-            $post->formatted_created_at = $post->created_at->format('D d M Y');
-            return $post;
-        });
-
-        return Inertia::render('Admin/Posts/Posts', [
-        //    'posts' => Post::all(),
-            'posts' => $posts,
-        ]);
+        if (Auth()->user() && Auth()->user()->is_admin) {
+            //$posts = Post::with('user')->get();
+            $posts = Post::with('user')->get()->map(function ($post) {
+                $post->formatted_created_at = $post->created_at->format('D d M Y');
+                return $post;
+            });
+            return Inertia::render('Admin/Posts/Posts', [
+                //    'posts' => Post::all(),
+                'posts' => $posts,
+            ]);
+        } elseif (Auth()->user()) {
+            return Inertia::render('User/Posts/MyPosts', [
+                'posts' => auth()->user()->posts,
+            ]);
+        }
     }
 
     /**
@@ -39,7 +38,11 @@ class PostController extends Controller
 
     public function create()
     {
-        return Inertia::render('Admin/Posts/Create');
+        if (Auth()->user() && Auth()->user()->is_admin) {
+            return Inertia::render('Admin/Posts/Create');
+        } elseif (Auth()->user()) {
+            return Inertia::render('User/Posts/Create');
+        }
     }
 
     /**
@@ -66,7 +69,12 @@ class PostController extends Controller
             'image' => $request->image,
         ]);
         // flash message https://inertiajs.com/shared-data#flash-messages
-        return redirect('admin/posts')->with('message', 'Post was created!');
+
+        if (Auth()->user() && Auth()->user()->is_admin) {
+            return redirect('admin/posts')->with('message', 'Post was created!');
+        } elseif (Auth()->user()) {
+            return redirect('myposts')->with('message', 'Post was created!');
+        }
     }
 
     /**
@@ -90,8 +98,6 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    // public function update(UpdatePostRequest $request, Post $post) 
-    // ???? UpdatePostRequest
     public function update(Request $request, Post $post)
     {
         //  dd($request->all());
@@ -108,7 +114,11 @@ class PostController extends Controller
             'image' => $request->image,
         ]);
 
-        return redirect('admin/posts')->with('message', 'Post was updated!');
+        if (Auth()->user() && Auth()->user()->is_admin) {
+            return redirect('admin/posts')->with('message', 'Post was updated!');
+        } elseif (Auth()->user()) {
+            return redirect('myposts')->with('message', 'Post was updated!');
+        }
     }
 
     /**
@@ -116,10 +126,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post, Request $request)
     {
-        //   dd($request->all());
         $id = $request->id;
         Post::find($id)->delete();
 
-        return redirect('admin/posts')->with('message', 'Post was deleted!');
+        if (Auth()->user() && Auth()->user()->is_admin) {
+            return redirect('admin/posts')->with('message', 'Post was deleted!');
+        } elseif (Auth()->user()) {
+            return redirect('myposts')->with('message', 'Post was deleted!');
+        }
     }
 }
