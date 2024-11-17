@@ -106,18 +106,4 @@ class ProductController extends Controller
 
         return redirect('admin/products')->with('message', 'Prodect was deleted!');
     }
-
-    public function toggleFavorite(Product $product)
-    {
-        dd('test toggleFavorite');
-        $user = auth()->user();
-
-        if ($user->favorites()->where('product_id', $product->id)->exists()) {
-            $user->favorites()->detach($product);
-        } else {
-            $user->favorites()->attach($product);
-        }
-
-        return back();
-    }
 }

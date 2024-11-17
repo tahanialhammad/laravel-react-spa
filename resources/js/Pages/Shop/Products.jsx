@@ -2,20 +2,9 @@ import React from "react";
 import SiteLayout from "@/Layouts/SiteLayout";
 import { Link } from "@mui/material";
 import { Head } from "@inertiajs/react";
+import AddToFavorites from "./AddToFavorites";
 
 export default function Products({ products, userFavorites }) {
-    function toggleFavorite(productId) {
-        return (e) => {
-            e.preventDefault();
-            //  alert(productId);
-            post(route("products.favorite", { product: productId }));
-            //  post(`/products/${productId}/favorite`);
-            // post(`/products/${productId}/favorite`, {}, {
-            //     onSuccess: () => alert('Favorite toggled!'),
-            // });
-        };
-    }
-
     return (
         <SiteLayout>
             <Head title="Shop" />
@@ -33,19 +22,10 @@ export default function Products({ products, userFavorites }) {
                                             key={product.id}
                                             className="bg-transparent rounded-lg relative"
                                         >
-                                            <button
-                                                className="absolute z-30 top-2 right-0 mt-2 mr-3"
-                                                onClick={toggleFavorite(
-                                                    product.id
-                                                )}
-                                            >
-                                                {userFavorites.includes(
-                                                    product.id
-                                                )
-                                                    ? "💖"
-                                                    : "🤍"}
-                                            </button>
-
+                                            <AddToFavorites
+                                                product={product}
+                                                userFavorites={userFavorites}
+                                            />
                                             <img
                                                 src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                                 alt="Placeholder Image"
