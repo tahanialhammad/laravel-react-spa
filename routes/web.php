@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProductController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Application;
@@ -112,6 +113,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Shop
+    Route::post('/favorites', [FavoriteController::class, 'toggleFavorite'])->name('product.toggleFavorite');
 });
 
 require __DIR__ . '/auth.php';

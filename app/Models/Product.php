@@ -17,6 +17,6 @@ class Product extends Model
     ];
     public function favoritedBy()
     {
-        return $this->belongsToMany(User::class, 'favorites')->withTimestamps();
+        return $this->belongsToMany(User::class, 'favorites');
     }
 }
