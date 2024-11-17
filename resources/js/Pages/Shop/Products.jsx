@@ -1,6 +1,7 @@
 import React from "react";
 import SiteLayout from "@/Layouts/SiteLayout";
 import { Link } from "@mui/material";
+import { Head } from "@inertiajs/react";
 
 export default function Products({ products, userFavorites }) {
     function toggleFavorite(productId) {
@@ -17,6 +18,8 @@ export default function Products({ products, userFavorites }) {
 
     return (
         <SiteLayout>
+            <Head title="Shop" />
+
             <div className="container">
                 <div>SHOP</div>
                 <div className="flex w-full">
@@ -55,7 +58,10 @@ export default function Products({ products, userFavorites }) {
                                                     </Link> */}
 
                                                     <Link
-                                                       href={route('products.show',product )}
+                                                        href={route(
+                                                            "products.show",
+                                                            product
+                                                        )}
                                                         className="block text-xl text-blue-gray-900"
                                                     >
                                                         {product.name}

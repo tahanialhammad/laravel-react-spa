@@ -3,24 +3,24 @@ import MiniDrawerAuthLayout from "@/Layouts/MiniDrawerAuthLayout";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { Head, useForm } from "@inertiajs/react";
 
-export default function Create({ auth }) {
-    const { data, setData, post, errors, processing } = useForm({
-        name: "",
-        description: "",
-        price: 0,
-        stock: 0,
+export default function Update({ auth , product}) {
+    const { data, setData, put, errors, processing } = useForm({
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        stock: product.stock,
     });
 
     function createProduct(e) {
         e.preventDefault();
-        post("/products");
+        put(`/products/${product.id}`);
     }
 
     return (
         <MiniDrawerAuthLayout user={auth.user}>
-            <Head title="Create product" />
+            <Head title="Update product" />
 
-            <div>Add new product</div>
+            <div>Update product</div>
             <form onSubmit={createProduct}>
                 <div>
                     <label>Name:</label>
@@ -62,7 +62,7 @@ export default function Create({ auth }) {
                 </div>
 
                 <div>
-                    <PrimaryButton disabled={processing}>Add</PrimaryButton>
+                    <PrimaryButton disabled={processing}>Update</PrimaryButton>
                 </div>
             </form>
         </MiniDrawerAuthLayout>
