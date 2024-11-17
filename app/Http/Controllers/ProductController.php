@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        sleep(2);
+        sleep(1);
 
         $product = $request->validate([
             'name' => 'required|min:3',
@@ -73,7 +73,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return Inertia('Admin/Products/Edit', compact('product'));
     }
 
     /**
@@ -81,7 +81,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        sleep(1);
+        
+        $updateProduct = $request->validate([
+            'name' => 'required|min:3',
+            'description' => 'required|min:3',
+            'price' => 'required|numeric',
+            'stock' => 'required|integer',
+        ]);
+
+        $product->update($updateProduct);
+
+        return redirect('admin/products')
+        ->with('message', 'Products was updated!')
+        ->with('messageType', 'success');
     }
 
     /**
