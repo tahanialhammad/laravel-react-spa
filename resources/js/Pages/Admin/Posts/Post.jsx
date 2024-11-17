@@ -5,6 +5,7 @@ import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
 
 export default function Post({ auth, post }) {
+    const isAdmin = auth.user.is_admin;
     return (
         <AuthenticatedLayout
             user={auth.user}

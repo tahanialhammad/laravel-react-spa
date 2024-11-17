@@ -8,7 +8,7 @@ import AnimatedAuthNav from "./AnimatedAuthNav";
 
 const navigation = [
     { name: "dashboard", href: "dashboard" },
-    { name: "Blog", href: "posts" },
+    { name: "My posts", href: "myposts.index" },
     // { name: "Create post", href: "admin/create" },
 ];
 
