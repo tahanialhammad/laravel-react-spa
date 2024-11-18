@@ -82,9 +82,16 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return Inertia::render('Admin/Posts/Post', [
-            'post' => $post,
-        ]);
+        if (Auth()->user() && Auth()->user()->is_admin) {
+            return Inertia::render('Admin/Posts/Post', [
+                'post' => $post,
+            ]);
+        } else {
+            $post->load('user');
+            return Inertia::render('Posts/Post', [
+                'post' => $post,
+            ]);
+        }
     }
 
     /**
