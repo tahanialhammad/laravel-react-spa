@@ -4,9 +4,9 @@ import { Link } from "@mui/material";
 import { Head } from "@inertiajs/react";
 import AddToFavorites from "./AddToFavorites";
 
-export default function Products({ products, userFavorites }) {
+export default function Products({auth,  products, userFavorites }) {
     return (
-        <SiteLayout>
+        <SiteLayout user={auth.user}>
             <Head title="Shop" />
 
             <div className="container">

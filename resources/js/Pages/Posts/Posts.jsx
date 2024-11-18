@@ -1,9 +1,9 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { Link, Head } from "@inertiajs/react";
 
-export default function Posts({ posts }) {
+export default function Posts({ auth, posts }) {
     return (
-        <SiteLayout>
+        <SiteLayout user={auth.user}>
             {/* rfc */}
             <Head title="Posts" />
 

@@ -1,9 +1,9 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { Link, Head } from "@inertiajs/react";
 
-export default function Post({ post }) {
+export default function Post({ auth, post }) {
     return (
-        <SiteLayout>
+        <SiteLayout user={auth.user}>
             <Head title="Post" />
 
             <div className="flex">
@@ -35,7 +35,7 @@ export default function Post({ post }) {
                                 />
                                 <div>
                                     <p className="font-semibold text-gray-200 text-sm">
-                                    {/* {post.user.name} */}
+                                        {/* {post.user.name} */}
                                     </p>
                                     <p className="font-semibold text-gray-400 text-xs">
                                         {post.created_at}
