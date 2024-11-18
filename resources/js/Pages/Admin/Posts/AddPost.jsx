@@ -128,7 +128,6 @@ export default function AddPost() {
                                     className="mt-2"
                                 />
                             </div>
-
                             
                             <div>
                                 <InputLabel htmlFor="body" value="Post body" />
