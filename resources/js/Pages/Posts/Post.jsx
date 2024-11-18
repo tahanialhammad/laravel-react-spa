@@ -35,7 +35,7 @@ export default function Post({ post }) {
                                 />
                                 <div>
                                     <p className="font-semibold text-gray-200 text-sm">
-                                    {post.user.name}
+                                    {/* {post.user.name} */}
                                     </p>
                                     <p className="font-semibold text-gray-400 text-xs">
                                         {post.created_at}

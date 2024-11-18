@@ -117,6 +117,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Blog
     Route::resource('myposts', PostController::class);
     Route::delete('/myposts', [PostController::class, 'destroy'])->name('myposts.destroy');
+    Route::delete('/myposts/{post}', [PostController::class, 'show'])->name('myposts.show');
 
     // Shop
     Route::post('/favorites', [FavoriteController::class, 'toggleFavorite'])->name('product.toggleFavorite');
