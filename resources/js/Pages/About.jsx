@@ -2,9 +2,9 @@ import SiteLayout from "@/Layouts/SiteLayout";
 import { Link, Head } from "@inertiajs/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function About({ name }) {
+export default function About({ auth, name }) {
     return (
-        <SiteLayout>
+        <SiteLayout user={auth.user}>
             <Head title="About" />
             <AnimatePresence mode="wait">
                 <motion.div
