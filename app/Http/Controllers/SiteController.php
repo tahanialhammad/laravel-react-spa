@@ -30,7 +30,7 @@ class SiteController extends Controller
 
     public function about()
     {
-        return Inertia::render('About', [
+        return Inertia::render('About/About', [
             'name' => 'Tahani Alhammad'
         ]);
     }

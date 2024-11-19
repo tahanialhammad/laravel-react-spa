@@ -5,7 +5,9 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 import { Dialog } from "@headlessui/react";
 import Dropdown from "@/Components/Dropdown";
 import HoverDropDowen from "@/Components/HoverDropDowen";
-
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 const navigation = [
     { name: "Home", href: "welcome" },
@@ -22,12 +24,9 @@ const navigation = [
             { name: "LandingPage", href: "LandingPage" },
             { name: "LayoutsExample", href: "LayoutsExample" },
             { name: "TestCode", href: "TestCode" },
-
-            
         ],
     },
 ];
-
 
 export default function SiteNav({ user }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,62 +66,76 @@ export default function SiteNav({ user }) {
                         </button>
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
-                    {navigation.map((item, index) => (
-                        <HoverDropDowen>
-                            <HoverDropDowen.Trigger key={index}>
-                                <NavLink
-                                    key={item.name}
-                                    href={item.href && route(item.href)}
-                                    active={
-                                        item.href && route().current(item.href)
-                                    }
-                                    className="text-sm font-semibold leading-6 text-gray-900"
-                                >
-                                    {item.name}
-                                </NavLink>
-                            </HoverDropDowen.Trigger>
+                        {navigation.map((item, index) => (
+                            <HoverDropDowen>
+                                <HoverDropDowen.Trigger key={index}>
+                                    <NavLink
+                                        key={item.name}
+                                        href={item.href && route(item.href)}
+                                        active={
+                                            item.href &&
+                                            route().current(item.href)
+                                        }
+                                        className="text-sm font-semibold leading-6 text-gray-900"
+                                    >
+                                        {item.name}
+                                    </NavLink>
+                                </HoverDropDowen.Trigger>
 
-                            {item.subNav && (
-                                <HoverDropDowen.Content>
-                                    {item.subNav.map((subItem, subIndex) => (
-                                        <HoverDropDowen.Link
-                                            href={route(subItem.href)}
-                                            key={subIndex}
-                                            className="px-2"
-                                        >
-                                            {subItem.name}
-                                        </HoverDropDowen.Link>
-                                    ))}
-                                </HoverDropDowen.Content>
-                            )}
-                        </HoverDropDowen>
-                    ))}
-                      
+                                {item.subNav && (
+                                    <HoverDropDowen.Content>
+                                        {item.subNav.map(
+                                            (subItem, subIndex) => (
+                                                <HoverDropDowen.Link
+                                                    href={route(subItem.href)}
+                                                    key={subIndex}
+                                                    className="px-2"
+                                                >
+                                                    {subItem.name}
+                                                </HoverDropDowen.Link>
+                                            )
+                                        )}
+                                    </HoverDropDowen.Content>
+                                )}
+                            </HoverDropDowen>
+                        ))}
                     </div>
-                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
+                        <NavLink
+                            href={route("welcome")}
+                            className="me-2 text-sm font-semibold leading-6 text-gray-900"
+                        >
+                            <LocalGroceryStoreOutlinedIcon />
+                        </NavLink>
+                        <NavLink
+                            href={route("welcome")}
+                            className="me-2 text-sm font-semibold leading-6 text-gray-900"
+                        >
+                            <FavoriteBorderOutlinedIcon />
+                        </NavLink>
                         {user ? (
-                            <Link
+                            <NavLink
                                 href={route("dashboard")}
-                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                className="text-sm font-semibold leading-6 text-gray-900"
                             >
                                 Dashboard
-                            </Link>
+                            </NavLink>
                         ) : (
                             <>
-                                <Link
+                                <NavLink
                                     href={route("login")}
-                                    className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    className="me-2 text-sm font-semibold leading-6 text-gray-900"
                                 >
-                                    Log in{" "}
-                                    <span aria-hidden="true">&rarr;</span>
-                                </Link>
+                                    <AccountCircleOutlinedIcon />
+                                </NavLink>
 
-                                <Link
+                                <NavLink
                                     href={route("register")}
-                                    className="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    className="me-2 text-sm font-semibold leading-6 text-gray-900"
                                 >
                                     Register
-                                </Link>
+                                    <span aria-hidden="true">&rarr;</span>
+                                </NavLink>
                             </>
                         )}
                     </div>
@@ -167,29 +180,46 @@ export default function SiteNav({ user }) {
                                         <Link
                                             key={item.name}
                                             href={item.href && route(item.href)}
-                                            active={item.href && route().current(item.href)}
+                                            active={
+                                                item.href &&
+                                                route().current(item.href)
+                                            }
                                             className="block -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                         >
                                             {item.name}
                                         </Link>
                                     ))}
                                 </div>
-                                <div className="py-6">
-                                    <Link
-                                        href={route("login")}
-                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    >
-                                        Log in
-                                    </Link>
-                                </div>
-                                <div className="py-6">
-                                    <Link
-                                        href={route("register")}
-                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    >
-                                        Register
-                                    </Link>
-                                </div>
+
+                                {user ? (
+                                    <div className="py-6">
+                                        <Link
+                                            href={route("dashboard")}
+                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        >
+                                            Dashboard
+                                        </Link>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <div className="py-6">
+                                            <NavLink
+                                                href={route("login")}
+                                                className="me-2 text-sm font-semibold leading-6 text-gray-900"
+                                            >
+                                                <AccountCircleOutlinedIcon />
+                                            </NavLink>
+                                        </div>
+                                        <div className="py-6">
+                                            <NavLink
+                                                href={route("register")}
+                                                className="me-2 text-sm font-semibold leading-6 text-gray-900"
+                                            >
+                                                Register
+                                            </NavLink>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </Dialog.Panel>
