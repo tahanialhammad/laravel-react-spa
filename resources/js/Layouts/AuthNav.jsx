@@ -7,9 +7,10 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import AnimatedAuthNav from "./AnimatedAuthNav";
 
 const navigation = [
-    { name: "dashboard", href: "dashboard" },
+    { name: "Home", href: "welcome" },
+    { name: "Dashboard", href: "dashboard" },
     { name: "My posts", href: "myposts.index" },
-    // { name: "Create post", href: "admin/create" },
+    { name: "My orders", href: "welcome" },
 ];
 
 export default function AuthNav({ user }) {
