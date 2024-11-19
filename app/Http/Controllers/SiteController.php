@@ -19,13 +19,16 @@ class SiteController extends Controller
 {
     public function welcome()
     {
-        return Inertia::render('Home/Welcome', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'laravelVersion' => Application::VERSION,
-            'phpVersion' => PHP_VERSION,
-            'foo' => 'baar'
-        ]);
+        // return Inertia::render('Home/Welcome', [
+        //     'canLogin' => Route::has('login'),
+        //     'canRegister' => Route::has('register'),
+        //     'laravelVersion' => Application::VERSION,
+        //     'phpVersion' => PHP_VERSION,
+        //     'foo' => 'baar'
+        // ]);
+
+        $products = Product::latest()->take(10)->get();
+        return Inertia::render('Home/Welcome', compact('products'));
     }
 
     public function about()
@@ -47,7 +50,7 @@ class SiteController extends Controller
         $posts = Post::with('user')->get();
 
         return Inertia::render('Posts/Posts', [
-           // 'posts' => Post::all(),
+            // 'posts' => Post::all(),
             'posts' =>  $posts,
 
         ]);
@@ -72,22 +75,21 @@ class SiteController extends Controller
     }
     public function LandingPage()
     {
-        return Inertia::render('Landing/LandingPage'); 
+        return Inertia::render('Landing/LandingPage');
     }
-    
+
     public function LayoutsExample()
     {
-        return Inertia::render('LayoutsExample/LayoutsExample'); 
+        return Inertia::render('LayoutsExample/LayoutsExample');
     }
 
     public function services()
     {
-        return Inertia::render('Services/Services'); 
+        return Inertia::render('Services/Services');
     }
 
     public function TestCode()
     {
-        return Inertia::render('TestCode/TestCode'); 
+        return Inertia::render('TestCode/TestCode');
     }
-    
 }
