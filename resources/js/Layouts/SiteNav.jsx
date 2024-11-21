@@ -8,6 +8,7 @@ import HoverDropDowen from "@/Components/HoverDropDowen";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 
 const navigation = [
     { name: "Home", href: "welcome" },
@@ -105,7 +106,7 @@ export default function SiteNav({ user }) {
                             href={route("welcome")}
                             className="me-2 text-sm font-semibold leading-6 text-gray-900"
                         >
-                            <LocalGroceryStoreOutlinedIcon />
+                            <ShoppingBagOutlinedIcon />
                         </NavLink>
                         <NavLink
                             href={route("welcome")}

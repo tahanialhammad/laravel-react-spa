@@ -12,7 +12,7 @@ export default function Categories({ initialTime }) {
     ];
 
     return (
-        <div className="flex flex-row my-6 gap-4 ">
+        <div className="flex flex-row my-6 gap-4">
             <div className="w-1/2 bg-indigo-200 rounded-3xl p-4 capitalize text-center relative">
                 <h3 className="text-lg font-bold tracking-tight text-red-500 uppercase mt-4">
                     50% off
@@ -30,7 +30,7 @@ export default function Categories({ initialTime }) {
                     src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/parkofideas.com-1.png"
                     alt=""
                 />
-                <img
+                <img className=""
                     src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/parkofideas.com-1032356503-768x584-1.png"
                     alt=""
                 />
