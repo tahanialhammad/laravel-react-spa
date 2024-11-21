@@ -28,7 +28,9 @@ class SiteController extends Controller
         // ]);
 
         $products = Product::latest()->take(10)->get();
-        return Inertia::render('Home/Welcome', compact('products'));
+
+        $initialTime = 7200;
+        return Inertia::render('Home/Welcome', compact('products', 'initialTime'));
     }
 
     public function about()

@@ -48,13 +48,15 @@ export default function Categories({ initialTime }) {
 
 function CategoryItem({ image }) {
     return (
-        <div
-            className="w-56 h-56 m-4 rounded-lg bg-gray-100 bg-cover bg-center border-r-2 content-end"
+        <motion.div
+            initial={{ opacity: 0, scale: 0, x: 500 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.1 }}
+            viewport={{ once: true, amount: 1 }}
+            className="w-56 h-56 m-4 rounded-lg bg-gray-100 bg-cover bg-center border-r-2"
             style={{ backgroundImage: `url(${image})` }}
         >
-            <h3 className="text-2xl font-bold">
-            Categories name
-            </h3>
-        </div>
+            {/* <img className="w-56 max-h-56 rounded-lg" src={image} alt="" /> */}
+        </motion.div>
     );
 }

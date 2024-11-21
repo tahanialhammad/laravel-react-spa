@@ -5,42 +5,12 @@ import FramerMotion from "@/Pages/FramerMotion/FramerMotion";
 import Features from "./partials/Features";
 import Categories from "./partials/Categories";
 
-export default function Welcome({ auth, products }) {
+export default function Welcome({ auth, products, initialTime }) {
     return (
         <SiteLayout user={auth.user}>
-            <div className="flex w-full gap-8">
-                {/* <div className="w-1/3 bg-lime-200 rounded-3xl p-4">
-    <img src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Cute-Baby-1194x813-1.png" alt="" />
-</div> */}
-
-                <div className="w-2/5 bg-lime-200 rounded-3xl p-4 relative">
-                    <img
-                        src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Cute-Baby-1194x813-1.png"
-                        alt=""
-                        className="rounded-3xl"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-lime-200 via-transparent"></div>
-                </div>
-
-                <div className="w-3/5 flex flex-col gap-8">
-                    <div className="rounded-3xl">
-                        <img
-                            className="rounded-3xl"
-                            src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Mask-Group-10.jpg"
-                            alt=""
-                        />
-                    </div>
-
-                    <div className="">
-                        <img
-                            className="rounded-3xl"
-                            src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Mask_Group_9.png"
-                            alt=""
-                        />
-                    </div>
-                </div>
-            </div>
-
+            <HeroSection />
+        
+            <Categories initialTime={initialTime} />
             <div className="flex w-full gap-8 my-10">
                 <div
                     className="w-1/4 bg-cover bg-center text-black flex flex-col items-center justify-centertt rounded-3xl p-4"
@@ -76,7 +46,7 @@ export default function Welcome({ auth, products }) {
                                     sale
                                 </div>
                                 <button
-                                    class="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                    class="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                     type="button"
                                 >
                                     <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
