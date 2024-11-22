@@ -43,6 +43,8 @@ class ProductController extends Controller
             'description' => 'required|min:3',
             'price' => 'required|numeric',
             'stock' => 'required|integer',
+            'discount' => 'nullable|numeric|min:0',
+            'discount_type' => 'nullable|string|in:fixed,percentage',
         ]);
 
         Product::create($product);
