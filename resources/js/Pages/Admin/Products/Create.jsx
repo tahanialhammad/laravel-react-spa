@@ -9,6 +9,8 @@ export default function Create({ auth }) {
         description: "",
         price: 0,
         stock: 0,
+        discount: 0,
+        discount_type: "fixed", // Set default value to avoid empty submission
     });
 
     function createProduct(e) {
@@ -20,47 +22,100 @@ export default function Create({ auth }) {
         <MiniDrawerAuthLayout user={auth.user}>
             <Head title="Create product" />
 
-            <div>Add new product</div>
+            <div className="mb-4 text-lg font-bold">Add new product</div>
             <form onSubmit={createProduct}>
-                <div>
-                    <label>Name:</label>
+                {/* Name Field */}
+                <div className="mb-4">
+                    <label className="block mb-1">Name:</label>
                     <input
                         type="text"
                         value={data.name}
                         onChange={(e) => setData("name", e.target.value)}
+                        className="border p-2 w-full"
                     />
-                    {errors.name && <div>{errors.name}</div>}
+                    {errors.name && <div className="text-red-500 text-sm">{errors.name}</div>}
                 </div>
 
-                <div>
-                    <label>Description:</label>
+                {/* Description Field */}
+                <div className="mb-4">
+                    <label className="block mb-1">Description:</label>
                     <textarea
                         value={data.description}
                         onChange={(e) => setData("description", e.target.value)}
+                        className="border p-2 w-full"
                     />
-                    {errors.description && <div>{errors.description}</div>}
+                    {errors.description && (
+                        <div className="text-red-500 text-sm">{errors.description}</div>
+                    )}
                 </div>
 
-                <div>
-                    <label>Price:</label>
+                {/* Price Field */}
+                <div className="mb-4">
+                    <label className="block mb-1">Price:</label>
                     <input
                         type="number"
                         value={data.price}
                         onChange={(e) => setData("price", e.target.value)}
+                        className="border p-2 w-full"
                     />
-                    {errors.price && <div>{errors.price}</div>}
+                    {errors.price && <div className="text-red-500 text-sm">{errors.price}</div>}
                 </div>
 
-                <div>
-                    <label>Stock:</label>
+                {/* Discount and Discount Type */}
+                <div className="mb-4 flex gap-4">
+                    {/* Discount */}
+                    <div className="flex-1">
+                        <label className="block mb-1" htmlFor="discount">
+                            Discount
+                        </label>
+                        <input
+                            type="number"
+                            name="discount"
+                            id="discount"
+                            step="0.01"
+                            value={data.discount}
+                            onChange={(e) => setData("discount", e.target.value)}
+                            className="border p-2 w-full"
+                        />
+                        {errors.discount && (
+                            <div className="text-red-500 text-sm">{errors.discount}</div>
+                        )}
+                    </div>
+
+                    {/* Discount Type */}
+                    <div className="flex-1">
+                        <label className="block mb-1" htmlFor="discount_type">
+                            Discount Type
+                        </label>
+                        <select
+                            name="discount_type"
+                            id="discount_type"
+                            value={data.discount_type} // Bind value to data
+                            onChange={(e) => setData("discount_type", e.target.value)}
+                            className="border p-2 w-full"
+                        >
+                            <option value="fixed">Fixed</option>
+                            <option value="percentage">Percentage</option>
+                        </select>
+                        {errors.discount_type && (
+                            <div className="text-red-500 text-sm">{errors.discount_type}</div>
+                        )}
+                    </div>
+                </div>
+
+                {/* Stock Field */}
+                <div className="mb-4">
+                    <label className="block mb-1">Stock:</label>
                     <input
                         type="number"
                         value={data.stock}
                         onChange={(e) => setData("stock", e.target.value)}
+                        className="border p-2 w-full"
                     />
-                    {errors.stock && <div>{errors.stock}</div>}
+                    {errors.stock && <div className="text-red-500 text-sm">{errors.stock}</div>}
                 </div>
 
+                {/* Submit Button */}
                 <div>
                     <PrimaryButton disabled={processing}>Add</PrimaryButton>
                 </div>
