@@ -84,7 +84,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         sleep(1);
-        
+
         $updateProduct = $request->validate([
             'name' => 'required|min:3',
             'description' => 'required|min:3',
@@ -95,8 +95,8 @@ class ProductController extends Controller
         $product->update($updateProduct);
 
         return redirect('admin/products')
-        ->with('message', 'Products was updated!')
-        ->with('messageType', 'success');
+            ->with('message', 'Products was updated!')
+            ->with('messageType', 'success');
     }
 
     /**

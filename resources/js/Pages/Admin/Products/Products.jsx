@@ -42,7 +42,7 @@ const columns = [
             return (
                 <div>
                     <span className="line-through text-gray-400">
-                        €{price}{" "}
+                        €{price}
                     </span>
                     <span>€ {discountedPrice}</span>
                 </div>

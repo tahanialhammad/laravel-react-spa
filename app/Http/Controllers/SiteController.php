@@ -19,16 +19,18 @@ class SiteController extends Controller
 {
     public function welcome()
     {
-        // return Inertia::render('Home/Welcome', [
-        //     'canLogin' => Route::has('login'),
-        //     'canRegister' => Route::has('register'),
-        //     'laravelVersion' => Application::VERSION,
-        //     'phpVersion' => PHP_VERSION,
-        //     'foo' => 'baar'
-        // ]);
+         // $products = Product::latest()->take(10)->get();
+    //    $products = Product::latest()->take(10)->get()->map(function ($product) {
+    //     return array_merge($product->toArray(), [
+    //         'discountedPrice' => $product->discountedPrice(),
+    //     ]);
+    // });
 
-        $products = Product::latest()->take(10)->get();
-
+    $products = Product::latest()->take(10)->get()->map(function ($product) {
+        $product->discountedPrice = $product->discountedPrice();
+        return $product;
+    });
+    
         $initialTime = 7200;
         return Inertia::render('Home/Welcome', compact('products', 'initialTime'));
     }
