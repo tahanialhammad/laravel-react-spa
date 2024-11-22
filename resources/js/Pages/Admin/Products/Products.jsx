@@ -22,7 +22,46 @@ const columns = [
             </Link>
         ),
     },
-    { field: "price", headerName: "Product price", flex: 1 },
+    // {
+    //     field: "discountedPrice",
+    //     headerName: "New price",
+    //     flex: 1,
+    //     renderCell: (params) => <span>€{params.value.toFixed(2)}</span>,
+    // },
+
+    {
+        field: "price",
+        headerName: "Price test",
+        flex: 1,
+        renderCell: (params) => {
+            const price = params.row.price;
+            const discountedPrice = params.row.discountedPrice;
+            if (!discountedPrice) {
+                return <span> €{price}</span>;
+            }
+            return (
+                <div>
+                    <span className="line-through text-gray-400">
+                        €{price}{" "}
+                    </span>
+                    <span>€ {discountedPrice}</span>
+                </div>
+            );
+        },
+    },
+
+    //  { field: "price", headerName: "Product price", flex: 1 },
+    { field: "discount", headerName: "Discount", flex: 1 },
+    {
+        field: "discount_type",
+        headerName: "Discount type",
+        flex: 1,
+        renderCell: (params) => {
+            const discountType = params.row.discount_type;
+            const discountedPrice = params.row.discountedPrice;
+            return discountedPrice ? discountType : "--";
+        },
+    },
     { field: "stock", headerName: "Stock", flex: 1 },
 ];
 
