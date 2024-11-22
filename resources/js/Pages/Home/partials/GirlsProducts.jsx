@@ -41,9 +41,15 @@ export default function GirlsProducts({ products }) {
                                 key={product.id}
                                 className="w-60 snap-start flex-shrink-0 bg-white relative border-2 p-4 rounded-3xl"
                             >
-                                <div className="!absolute left-4 right-4  ">
-                                    <span className="bg-red-400 px-3 py-1 rounded-full text-white">
-                                        sale!{" "}
+                                <div className="!absolute left-4 right-4 ">
+                                    <span
+                                        className={`bg-red-400 px-3 py-1 rounded-full text-white ${
+                                            product.discountedPrice
+                                                ? ""
+                                                : "hidden"
+                                        }`}
+                                    >
+                                        sale!
                                     </span>
                                 </div>
                                 <button
@@ -73,7 +79,22 @@ export default function GirlsProducts({ products }) {
                                                 <h1 className="text-lg font-bold">
                                                     {product.name}
                                                 </h1>
-                                                <p>{product.price}</p>
+
+                                                {product.discountedPrice ? (
+                                                    <p>
+                                                        <span>
+                                                            €{" "}
+                                                            {
+                                                                product.discountedPrice
+                                                            }
+                                                        </span>
+                                                        <span className="line-through text-gray-400 ms-1">
+                                                            €{product.price}
+                                                        </span>
+                                                    </p>
+                                                ) : (
+                                                    <p>€{product.price}</p>
+                                                )}
                                             </div>
                                             <SecondaryButton>
                                                 <ShoppingBagOutlinedIcon />
