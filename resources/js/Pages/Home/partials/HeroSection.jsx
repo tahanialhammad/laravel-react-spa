@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Winner from "./Winner";
 import AnimatedText from "@/Components/AnimatedText";
 import Winner2 from "./Winner2";
+import PrimaryButton from "@/Components/PrimaryButton";
+import SecondaryButton from "@/Components/SecondaryButton";
 
 export default function HeroSection() {
     return (
@@ -37,23 +39,60 @@ export default function HeroSection() {
                             className="rounded-3xl"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-lime-200 via-transparent mb-4"></div>
+                        <div className="absolute top-1/2 text-center w-full">
+                            <h4 className="text-xl text-red-500 uppercase font-bold">
+                                HUGE SALE
+                            </h4>
+                            <h1 className="text-3xl capitalize font-black">
+                                summer surprises
+                            </h1>
+                            <h3 className="text-2xl  capitalize">
+                                All Kids Clothing
+                            </h3>
+                            <PrimaryButton className="mt-4">Shop Now</PrimaryButton>
+                        </div>
                     </div>
 
                     <div className="w-3/5 flex flex-col gap-8">
-                        <div className="rounded-3xl">
+                        <div className="rounded-3xl relative">
                             <img
                                 className="rounded-3xl"
                                 src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Mask-Group-10.jpg"
                                 alt=""
                             />
+                            <div className="absolute top-1/3 right-4 m-4">
+                                <h4 className="text-xl text-indigo-500 uppercase font-bold">
+                                    {" "}
+                                    50% off{" "}
+                                </h4>
+                                <h1 className="text-3xl capitalize font-black">
+                                    happy babies
+                                </h1>
+                                <h3 className="text-2xl  capitalize">
+                                    with cute walk
+                                </h3>
+                                <PrimaryButton className="mt-4">Shop Now</PrimaryButton>
+                            </div>
                         </div>
 
-                        <div className="">
+                        <div className="relative">
                             <img
                                 className="rounded-3xl"
                                 src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Mask_Group_9.png"
                                 alt=""
                             />
+                            <div className="absolute top-1/3 left-4 m-4">
+                                <h4 className="text-xl text-indigo-500 uppercase font-bold">
+                                    HUGE SALE
+                                </h4>
+                                <h1 className="text-3xl capitalize font-black">
+                                    trend style
+                                </h1>
+                                <h3 className="text-2xl  capitalize">
+                                    fashion on fleek
+                                </h3>
+                                <SecondaryButton className="mt-4">Shop Now</SecondaryButton>
+                            </div>
                         </div>
                     </div>
                 </div>
