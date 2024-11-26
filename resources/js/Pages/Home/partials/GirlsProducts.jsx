@@ -31,7 +31,7 @@ export default function GirlsProducts({ products }) {
                     <h3 className="text-lg capitalize">
                         Over 150 Brands Available
                     </h3>
-                    <h1 className="text-3xl font-bold leading-tight capitalize">
+                    <h1 className="text-3xl font-black leading-tight capitalize">
                         girl's fashion
                     </h1>
 
@@ -83,7 +83,7 @@ export default function GirlsProducts({ products }) {
                                                 {product.discountedPrice ? (
                                                     <p>
                                                         <span>
-                                                            €{" "}
+                                                            €
                                                             {
                                                                 product.discountedPrice
                                                             }
