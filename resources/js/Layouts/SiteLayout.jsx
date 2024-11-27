@@ -1,6 +1,7 @@
 import SiteNav from "./SiteNav";
 import FlashMessage from "@/Components/FlashMessage";
 import { usePage } from "@inertiajs/react";
+import SiteFooter from "./SiteFooter";
 
 export default function SiteLayout({ user, children }) {
     const { flash } = usePage().props;
@@ -17,6 +18,9 @@ export default function SiteLayout({ user, children }) {
                 )}
             </div>
             <div className="mt-24 mx-8">{children}</div>
+            <footer>
+                <SiteFooter />
+            </footer>
         </div>
     );
 }
