@@ -4,11 +4,24 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import CountdownTimer from "./CountdownTimer";
 
 export default function Categories({ initialTime }) {
-    const surroundingImages = [
-        "https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Mask-Group-13.png",
-        "https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/favpng_lotion-johnsons-baby-milk-infant-shower-gel.png",
-        "https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Mask-Group-14.png",
-        "https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Group-10149-1.jpg",
+    const categories = [
+        {
+            name: "baby toys",
+
+            image: "https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Mask-Group-13.png",
+        },
+        {
+            name: "body care",
+            image: "https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/favpng_lotion-johnsons-baby-milk-infant-shower-gel.png",
+        },
+        {
+            name: "baby bags",
+            image: "https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Mask-Group-14.png",
+        },
+        {
+            name: "Baby Clothes",
+            image: "https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Group-10149-1.jpg",
+        },
     ];
 
     return (
@@ -38,8 +51,8 @@ export default function Categories({ initialTime }) {
             </div>
             <div className="w-1/2">
                 <div className="grid grid-cols-2 gap-4 border-2 p-4 rounded-3xl ">
-                    {surroundingImages.map((image, index) => (
-                        <CategoryItem key={index} image={image} />
+                    {categories.map((item, index) => (
+                        <CategoryItem key={index} item={item} />
                     ))}
                 </div>
             </div>
@@ -47,26 +60,17 @@ export default function Categories({ initialTime }) {
     );
 }
 
-function CategoryItem({ image }) {
+function CategoryItem({ item }) {
     return (
-        // <div
-        //     className="w-56 h-56 m-4 rounded-lg bg-gray-100 bg-cover bg-center border-r-2 content-end"
-        //     style={{ backgroundImage: `url(${image})` }}
-        // >
-        //     <h3 className="text-2xl font-bold">
-        //     Categories name
-        //     </h3>
-        // </div>
-
         <div className="flex flex-col items-center">
             <img
-                src={image}
+                src={item.image}
                 style={{ width: "124px", hight: "220px" }}
-                className="w-40tt h-48tt max-w-full m-auto"
+                className="max-w-full m-auto"
                 alt=""
             />
             <div>
-                <h3 className="text-2xl font-bold">Categories name</h3>
+                <h3 className="text-2xl font-bold capitalize">{item.name}</h3>
             </div>
         </div>
     );
