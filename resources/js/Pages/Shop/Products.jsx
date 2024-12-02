@@ -3,8 +3,10 @@ import SiteLayout from "@/Layouts/SiteLayout";
 import { Link } from "@mui/material";
 import { Head } from "@inertiajs/react";
 import AddToFavorites from "./AddToFavorites";
+import SecondaryButton from "@/Components/SecondaryButton";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 
-export default function Products({auth,  products, userFavorites }) {
+export default function Products({ auth, products, userFavorites }) {
     return (
         <SiteLayout user={auth.user}>
             <Head title="Shop" />
@@ -20,34 +22,78 @@ export default function Products({auth,  products, userFavorites }) {
                                     {products.data.map((product) => (
                                         <div
                                             key={product.id}
-                                            className="bg-transparent rounded-lg relative"
+                                            className="bg-white relative border-2 p-4 rounded-3xl"
                                         >
+                                            <div className="!absolute left-4 ">
+                                                <span
+                                                    className={`bg-red-400 px-3 py-1 rounded-full text-white ${
+                                                        product.discounted_price
+                                                            ? ""
+                                                            : "hidden"
+                                                    }`}
+                                                >
+                                                    sale!
+                                                </span>
+                                            </div>
+                                            <div class="!absolute top-4 right-4">
                                             <AddToFavorites
                                                 product={product}
                                                 userFavorites={userFavorites}
                                             />
+                                            </div>
+
                                             <img
                                                 src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                                 alt="Placeholder Image"
                                                 className="w-full h-48 rounded-md object-cover"
                                             />
-                                            <div className="px-1 py-4">
-                                                <div className="flex items-center justify-between mb-3">
-                                                    {/* <Link href={`/products/${product.id}`} className="block text-xl text-blue-gray-900">
+
+<div className="flex justify-between align-middle w-full">
+                                            <div>
+
+                                                   {/* <Link href={`/products/${product.id}`} className="block text-xl text-blue-gray-900">
                                                         {product.name}
                                                     </Link> */}
 
-                                                    <Link
+                                        
+                                                <Link
                                                         href={route(
                                                             "products.show",
                                                             product
                                                         )}
-                                                        className="block text-xl text-blue-gray-900"
+                                                        className="block text-xl text-blue-gray-900 font-bold"
                                                     >
                                                         {product.name}
                                                     </Link>
 
-                                                    <p className="flex items-center gap-1.5 text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
+
+
+                                                {product.discounted_price ? (
+                                                    <p>
+                                                        <span>
+                                                            €
+                                                            {
+                                                                product.discounted_price
+                                                            }
+                                                        </span>
+                                                        <span className="line-through text-gray-400 ms-1">
+                                                            €{product.price}
+                                                        </span>
+                                                    </p>
+                                                ) : (
+                                                    <p>€{product.price}</p>
+                                                )}
+                                            </div>
+                                            <SecondaryButton>
+                                                <ShoppingBagOutlinedIcon />
+                                            </SecondaryButton>
+                                        </div>
+
+
+
+
+
+                                        <p className="flex items-center gap-1.5 text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
                                                         <svg
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             viewBox="0 0 24 24"
@@ -62,22 +108,6 @@ export default function Products({auth,  products, userFavorites }) {
                                                         </svg>
                                                         5.0
                                                     </p>
-                                                </div>
-
-                                                <p className="text-gray-700 text-base">
-                                                    <span class="text-xl font-bold tracking-tight text-gray-900">
-                                                        €{product.price}
-                                                    </span>
-                                                </p>
-                                            </div>
-                                            <div class="p-6 pt-3">
-                                                <button
-                                                    class="block w-full select-none rounded-lg bg-gray-900 py-3.5 px-7 text-center align-middle text-sm font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                                    type="button"
-                                                >
-                                                    Add to card
-                                                </button>
-                                            </div>
                                         </div>
                                     ))}
                                 </div>

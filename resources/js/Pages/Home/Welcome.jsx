@@ -8,11 +8,12 @@ import GirlsProducts from "./partials/GirlsProducts";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Subscribe from "./partials/Subscribe";
 
-export default function Welcome({ auth, products, initialTime }) {
+export default function Welcome({ auth, products, initialTime , userFavorites }) {
     return (
         <SiteLayout user={auth.user}>
             <HeroSection />
-            <GirlsProducts products={products} />
+            <GirlsProducts products={products} userFavorites=
+            {userFavorites} />
             <Categories initialTime={initialTime} />
 
             <div className="flex">

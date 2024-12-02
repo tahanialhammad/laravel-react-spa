@@ -12,10 +12,8 @@ export default function AddToFavorites({ product, userFavorites }) {
     }
 
     return (
-        <div>
-            <button onClick={toggleFavorite}>
-                {userFavorites.includes(product.id) ? "💖" : "🤍"}
-            </button>
-        </div>
+        <button onClick={toggleFavorite}>
+            {userFavorites.includes(product.id) ? "💖" : "🤍"}
+        </button>
     );
 }
