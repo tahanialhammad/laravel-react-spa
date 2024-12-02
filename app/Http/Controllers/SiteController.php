@@ -19,20 +19,17 @@ class SiteController extends Controller
 {
     public function welcome()
     {
-         // $products = Product::latest()->take(10)->get();
-    //    $products = Product::latest()->take(10)->get()->map(function ($product) {
-    //     return array_merge($product->toArray(), [
-    //         'discountedPrice' => $product->discountedPrice(),
-    //     ]);
-    // });
+        $products = Product::latest()->take(10)->get();
 
-    $products = Product::latest()->take(10)->get()->map(function ($product) {
-        $product->discountedPrice = $product->discountedPrice();
-        return $product;
-    });
-    
+        // $products = Product::latest()->take(10)->get()->map(function ($product) {
+        //     $product->discountedPrice = $product->discountedPrice();
+        //     return $product;
+        // }); //now this in models
+
         $initialTime = 7200;
-        return Inertia::render('Home/Welcome', compact('products', 'initialTime'));
+        $userFavorites = auth()->check() ? auth()->user()->favorites->pluck('id') : [];
+
+        return Inertia::render('Home/Welcome', compact('products', 'initialTime', 'userFavorites'));
     }
 
     public function about()

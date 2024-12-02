@@ -14,11 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(20);
+        $products = Product::latest()->paginate(10);
 
         return Inertia::render('Shop/Products', [
             'products' => $products,
-            'userFavorites' => auth()->user() ? auth()->user()->favorites->pluck('id') : [],
+            'userFavorites' => auth()->check() ? auth()->user()->favorites->pluck('id') : [],
         ]);
     }
 
