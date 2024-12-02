@@ -1,73 +1,55 @@
-import SecondaryButton from "@/Components/SecondaryButton";
 import React from "react";
+import SiteLayout from "@/Layouts/SiteLayout";
+import { Link } from "@mui/material";
+import { Head } from "@inertiajs/react";
+// import AddToFavorites from "./AddToFavorites";
+import SecondaryButton from "@/Components/SecondaryButton";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import AddToFavorites from "@/Pages/Shop/AddToFavorites";
-import { Link } from "@inertiajs/react";
+import Pagination from "@/Components/Pagination";
 
-export default function GirlsProducts({ auth, products, userFavorites }) {
+export default function Wishlist({ auth, products }) {
     return (
-        <div>
-            <div className="flex w-full gap-8 mb-10 mt-20">
-                <div
-                    className="w-1/4 bg-auto bg-bottom bg-no-repeat text-black flex flex-col items-center justify-centertt rounded-3xl p-4"
-                    style={{
-                        backgroundImage: `
-                            url('https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Layer-1xfg.png')
-                        `,
-                        backgroundColor: "pink",
-                        backgroundPositionY: "100px",
-                    }}
-                >
-                    <div className="text-center">
-                        <h3 className="text-red-600 font-bold text-lg">
-                            50% off
-                        </h3>
-                        <h1 className="text-3xl font-bold leading-tight capitalize">
-                            Baby Girl's
-                        </h1>
-                        <h3 className="text-3xl">Collection</h3>
-                    </div>
-                </div>
+        <SiteLayout user={auth.user}>
+            <Head title="Shop" />
 
-                <div className="w-3/4 -mt-10">
-                    <h3 className="text-lg capitalize">
-                        Over 150 Brands Available
-                    </h3>
-                    <h1 className="text-3xl font-black leading-tight capitalize">
-                        girl's fashion
-                    </h1>
+            <div className="container">
+                <h1 className="font-bold text-3xl">My WishList</h1>
 
-                    <div className="overflow-x-auto scroll-pl-6 snap-x flex space-x-6 p-4">
-                        {products.map((product) => (
-                            <div
-                                key={product.id}
-                                className="w-60 snap-start flex-shrink-0 bg-white relative border-2 p-4 rounded-3xl"
-                            >
-                                <div className="!absolute left-4 top-4">
-                                    <span
-                                        className={`bg-red-400 px-3 py-1 rounded-full text-white ${
-                                            product.discounted_price
-                                                ? ""
-                                                : "hidden"
-                                        }`}
-                                    >
-                                        sale!
-                                    </span>
-                                </div>
+                <div className="container mx-auto px-4 ">
+                    {products?.data?.length > 0 ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+                            {products.data.map((product) => (
+                                <div
+                                    key={product.id}
+                                    className="bg-transparent relative border-2 rounded-3xl"
+                                >
+                                    <div className="!absolute top-4 left-4 ">
+                                        <span
+                                            className={`bg-red-400 px-3 py-1 rounded-full text-white ${
+                                                product.discounted_price
+                                                    ? ""
+                                                    : "hidden"
+                                            }`}
+                                        >
+                                            sale!
+                                        </span>
+                                    </div>
+                                    <div class="!absolute top-4 right-4">
+                                        {/* <AddToFavorites
+                                                product={product}
+                                                userFavorites={
+                                                    userFavorites
+                                                }
+                                            /> */}
+                                    </div>
 
-                                <div class="!absolute top-4 right-4">
-                                    <AddToFavorites
-                                        product={product}
-                                        userFavorites={userFavorites}
+                                    <img
+                                        src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        alt="Placeholder Image"
+                                        className="w-full h-48 rounded-3xl object-cover"
                                     />
-                                </div>
 
-                                <div className="mt-4">
-                                    <div class="flex flex-col items-center justify-between mb-3">
-                                        <img
-                                            src="https://demo.phlox.pro/shop-baby/wp-content/uploads/sites/319/2021/06/Group-10147-1-637x847.jpg"
-                                            alt=""
-                                        />
+                                    <div className="p-4">
                                         <div className="flex justify-between align-middle w-full">
                                             <div>
                                                 <Link
@@ -79,6 +61,7 @@ export default function GirlsProducts({ auth, products, userFavorites }) {
                                                 >
                                                     {product.name}
                                                 </Link>
+
                                                 {product.discounted_price ? (
                                                     <p>
                                                         <span>
@@ -117,11 +100,17 @@ export default function GirlsProducts({ auth, products, userFavorites }) {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-center">Your wishlist is empty.</p>
+                    )}
                 </div>
+
+                {products?.data?.length > 0 && (
+                    <Pagination links={products.links} />
+                )}
             </div>
-        </div>
+        </SiteLayout>
     );
 }

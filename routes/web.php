@@ -120,6 +120,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/myposts/{post}', [PostController::class, 'show'])->name('myposts.show');
 
     // Shop
+    Route::get('/wishlist', [FavoriteController::class, 'index'])->name('product.wishlist');
     Route::post('/favorites', [FavoriteController::class, 'toggleFavorite'])->name('product.toggleFavorite');
 });
 

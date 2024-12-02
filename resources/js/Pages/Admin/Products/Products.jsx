@@ -35,16 +35,17 @@ const columns = [
         flex: 1,
         renderCell: (params) => {
             const price = params.row.price;
-            const discountedPrice = params.row.discountedPrice;
+            const discountedPrice = params.row.discounted_price;
             if (!discountedPrice) {
                 return <span> €{price}</span>;
             }
             return (
                 <div>
-                    <span className="line-through text-gray-400">
+                   
+                    <span>€ {discountedPrice}</span>
+                    <span className="ms-1 line-through text-gray-400">
                         €{price}
                     </span>
-                    <span>€ {discountedPrice}</span>
                 </div>
             );
         },
@@ -58,7 +59,7 @@ const columns = [
         flex: 1,
         renderCell: (params) => {
             const discountType = params.row.discount_type;
-            const discountedPrice = params.row.discountedPrice;
+            const discountedPrice = params.row.discounted_price;
             return discountedPrice ? discountType : "--";
         },
     },

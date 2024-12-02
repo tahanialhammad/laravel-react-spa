@@ -109,7 +109,7 @@ export default function SiteNav({ user }) {
                             <ShoppingBagOutlinedIcon />
                         </NavLink>
                         <NavLink
-                            href={route("welcome")}
+                            href={route("product.wishlist")}
                             className="me-2 text-sm font-semibold leading-6 text-gray-900"
                         >
                             <FavoriteBorderOutlinedIcon />

@@ -39,12 +39,12 @@ class AdminController extends Controller
 
     public function AdminProducts()
     {
-       // $products = Product::all();
-        $products = Product::all()->map(function ($product) {
-            return array_merge($product->toArray(), [
-                'discountedPrice' => $product->discountedPrice(),
-            ]);
-        });
+       $products = Product::all();
+        // $products = Product::all()->map(function ($product) {
+        //     return array_merge($product->toArray(), [
+        //         'discountedPrice' => $product->discountedPrice(),
+        //     ]);
+        // });
         return Inertia::render('Admin/Products/Products', compact('products') );
     }
 }
